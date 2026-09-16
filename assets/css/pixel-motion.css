@@ -1,0 +1,170 @@
+/* ACCESS — Secure Signal Motion
+   Direction: secure / reactive / signal-driven
+   Signature: one-shot perimeter scan + permission acknowledgement. */
+
+:root {
+  --access-motion-micro: 110ms;
+  --access-motion-fast: 180ms;
+  --access-motion-base: 300ms;
+  --access-motion-scan: 620ms;
+  --access-motion-ease: cubic-bezier(.2,.72,.25,1);
+  --access-motion-step: steps(5, end);
+}
+
+.pixel-tech-ui .btn,
+.pixel-tech-ui .nav-link,
+.pixel-tech-ui .mobile-nav-link,
+.pixel-tech-ui [data-scenario-tab] {
+  transition:
+    transform var(--access-motion-fast) var(--access-motion-ease),
+    border-color var(--access-motion-fast) ease,
+    background-color var(--access-motion-fast) ease,
+    color var(--access-motion-fast) ease,
+    box-shadow var(--access-motion-fast) ease;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .pixel-tech-ui .btn:hover,
+  .pixel-tech-ui [data-scenario-tab]:hover {
+    transform: translate3d(2px,-2px,0);
+  }
+
+  .pixel-tech-ui .btn:active,
+  .pixel-tech-ui [data-scenario-tab]:active {
+    transform: translate3d(0,1px,0);
+    transition-duration: var(--access-motion-micro);
+  }
+}
+
+/* Navigation reads like an access bus becoming active. */
+.pixel-tech-ui .nav-link {
+  position: relative;
+}
+
+.pixel-tech-ui .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--access-motion-base) var(--access-motion-step);
+}
+
+.pixel-tech-ui .nav-link:hover::after,
+.pixel-tech-ui .nav-link:focus-visible::after,
+.pixel-tech-ui .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* One-shot perimeter scan for technical surfaces as they enter view. */
+.pixel-tech-ui :is(.system-diagram-card,.reader-sim-container,.journey-timeline-card,.zone-matrix-grid,.scenario-panels-wrapper) {
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-tech-ui :is(.system-diagram-card,.reader-sim-container,.journey-timeline-card,.zone-matrix-grid,.scenario-panels-wrapper).is-visible::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  left: -22%;
+  background: linear-gradient(90deg, transparent, rgba(80,215,250,.12), transparent);
+  animation: access-signal-scan var(--access-motion-scan) var(--access-motion-step) 1 both;
+}
+
+@keyframes access-signal-scan {
+  to { left: 108%; }
+}
+
+/* Reader feedback: hardware-like and short-lived, not decorative looping. */
+.pixel-tech-ui .reader-sim-container.is-visible .reader-led-light {
+  animation: access-reader-ack 520ms var(--access-motion-step) 1 both;
+}
+
+@keyframes access-reader-ack {
+  0%, 35% { opacity: .35; transform: scale(.88); }
+  36%, 70% { opacity: 1; transform: scale(1.08); }
+  71%, 100% { opacity: .92; transform: scale(1); }
+}
+
+/* Scenario switches acknowledge permission/state changes. */
+.pixel-tech-ui [data-scenario-panel].active {
+  animation: access-panel-ack var(--access-motion-base) var(--access-motion-step) both;
+}
+
+@keyframes access-panel-ack {
+  from { opacity: .5; transform: translate3d(8px,0,0); clip-path: inset(0 8px 0 0); }
+  to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+}
+
+.pixel-tech-ui [data-scenario-tab].active {
+  box-shadow: inset 3px 0 0 var(--accent-ice, #8ce9ff);
+}
+
+/* Stagger dense information modules only when the parent reveal is visible. */
+.pixel-tech-ui .trust-badges-grid.is-visible > *,
+.pixel-tech-ui .site-locations-strip.is-visible > *,
+.pixel-tech-ui .zone-matrix-grid.is-visible > * {
+  animation: access-node-online var(--access-motion-base) var(--access-motion-step) both;
+}
+
+.pixel-tech-ui .trust-badges-grid.is-visible > :nth-child(2),
+.pixel-tech-ui .site-locations-strip.is-visible > :nth-child(2),
+.pixel-tech-ui .zone-matrix-grid.is-visible > :nth-child(2) { animation-delay: 45ms; }
+.pixel-tech-ui .trust-badges-grid.is-visible > :nth-child(3),
+.pixel-tech-ui .site-locations-strip.is-visible > :nth-child(3),
+.pixel-tech-ui .zone-matrix-grid.is-visible > :nth-child(3) { animation-delay: 90ms; }
+.pixel-tech-ui .trust-badges-grid.is-visible > :nth-child(n+4),
+.pixel-tech-ui .site-locations-strip.is-visible > :nth-child(n+4),
+.pixel-tech-ui .zone-matrix-grid.is-visible > :nth-child(n+4) { animation-delay: 120ms; }
+
+@keyframes access-node-online {
+  from { opacity: .45; transform: translate3d(0,6px,0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Technical cards react through edge/border state, not generic scale. */
+@media (hover:hover) and (pointer:fine) {
+  .pixel-tech-ui :is(.system-diagram-card,.journey-timeline-card,.reader-sim-container,.zone-matrix-grid,.scenario-panels-wrapper,.trust-badges-grid > *) {
+    transition: border-color var(--access-motion-fast) ease, box-shadow var(--access-motion-base) ease;
+  }
+
+  .pixel-tech-ui :is(.system-diagram-card,.journey-timeline-card,.reader-sim-container,.zone-matrix-grid,.scenario-panels-wrapper):hover {
+    border-color: rgba(140,233,255,.42) !important;
+    box-shadow: 0 0 0 1px rgba(140,233,255,.08), 8px 8px 0 rgba(40,107,255,.06);
+  }
+}
+
+@media (max-width:768px) {
+  .pixel-tech-ui :is(.system-diagram-card,.reader-sim-container,.journey-timeline-card,.zone-matrix-grid,.scenario-panels-wrapper).is-visible::after {
+    width: 28%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-tech-ui *,
+  .pixel-tech-ui *::before,
+  .pixel-tech-ui *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .pixel-tech-ui [data-scenario-panel].active,
+  .pixel-tech-ui .reader-led-light,
+  .pixel-tech-ui .trust-badges-grid > *,
+  .pixel-tech-ui .site-locations-strip > *,
+  .pixel-tech-ui .zone-matrix-grid > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
