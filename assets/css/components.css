@@ -423,33 +423,89 @@
   border-color: #EF4444;
 }
 
-/* Event Log Terminal */
-.sim-event-terminal {
-  background: #07090C;
+/* Visual Status Result Card (replaces terminal) */
+.sim-status-card {
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid var(--border-dark-subtle);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-dark-muted);
-  max-height: 100px;
-  overflow-y: auto;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 56px;
+  transition: all 0.3s var(--ease-out-cubic);
 }
 
-.terminal-line {
-  margin-bottom: 0.35rem;
+.sim-status-card .status-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: var(--ice-400);
 }
 
-.terminal-line.success {
+.sim-status-card .status-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sim-status-card .status-text {
+  flex: 1;
+}
+
+.sim-status-card .status-text .status-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 0.15rem;
+}
+
+.sim-status-card .status-text .status-detail {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-dark-secondary);
+}
+
+/* Status card state variants */
+.sim-status-card.status-granted {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.sim-status-card.status-granted .status-icon {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
   color: var(--signal-granted);
 }
 
-.terminal-line.denied {
+.sim-status-card.status-denied {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.sim-status-card.status-denied .status-icon {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
   color: var(--signal-denied);
 }
 
-.terminal-line.alert {
-  color: var(--signal-warning);
+.sim-status-card.status-lockdown {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.12);
+  animation: strobe-lockdown 1.5s infinite;
+}
+
+.sim-status-card.status-lockdown .status-icon {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: var(--signal-denied);
 }
 
 /* ==========================================================================

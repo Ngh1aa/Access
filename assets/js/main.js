@@ -165,6 +165,27 @@
         }
       });
     });
+  // --- 7. Progressive Scroll Reveal Animation ---
+  if ('IntersectionObserver' in window) {
+    const revealTargets = document.querySelectorAll(
+      '.signature-bar, .story-grid-2col, .journey-timeline-card, .system-diagram-card, .zone-matrix-grid, .reader-sim-container, .scenario-panels-wrapper, .site-locations-strip, .trust-badges-grid'
+    );
+    revealTargets.forEach(el => el.classList.add('reveal'));
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealTargets.forEach(el => observer.observe(el));
   }
 
 })();

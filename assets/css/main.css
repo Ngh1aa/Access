@@ -551,6 +551,26 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) saturate(0.8);
+}
+
+.hero-bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 11, 14, 0.55) 0%, rgba(9, 11, 14, 0.85) 60%, rgba(9, 11, 14, 1) 100%);
+}
+
 .hero-ambient-glow {
   position: absolute;
   top: -15%;
@@ -558,23 +578,14 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 900px;
   height: 600px;
-  background: radial-gradient(ellipse, rgba(37, 99, 235, 0.18) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(37, 99, 235, 0.12) 0%, rgba(56, 189, 248, 0.06) 45%, transparent 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
 }
 
 .hero-grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 80%);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .hero-grid {
@@ -627,88 +638,142 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1rem;
 }
 
-.hero-metrics-bar {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+/* Social Proof Logo Strip */
+.hero-social-proof {
   margin-top: 3.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.hero-metric-item small {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.hero-social-proof-label {
+  font-family: var(--font-body);
+  font-size: 0.825rem;
+  font-weight: 500;
   color: var(--text-dark-muted);
-  margin-bottom: 0.25rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
 }
 
-.hero-metric-item strong {
+.hero-logos-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-logo-item {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.hero-logo-item:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ==========================================================================
    Editorial Journey & Visual Signature Flow
    ========================================================================== */
 .signature-bar {
-  background: var(--bg-dark-surface);
-  border-top: 1px solid var(--border-dark);
-  border-bottom: 1px solid var(--border-dark);
-  padding: 2rem 0;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-surface) 100%);
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
   color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
 }
 
 .signature-grid {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  position: relative;
 }
 
 .signature-step {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
-  flex-shrink: 0;
+  gap: 1rem;
+  flex: 1;
+  max-width: 200px;
+  text-align: center;
+  position: relative;
+  padding: 0 0.75rem;
 }
 
-.signature-step-num {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--ice-400);
-  background: rgba(56, 189, 248, 0.1);
+.signature-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(37, 99, 235, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.2);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--ice-400);
+  transition: all 0.3s var(--ease-out-cubic);
+  position: relative;
+  z-index: 2;
+}
+
+.signature-step:hover .signature-step-icon {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: var(--cobalt-500);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.signature-step-num {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ice-400);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.08em;
 }
 
 .signature-step-content strong {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: #FFFFFF;
+  margin-bottom: 0.2rem;
 }
 
 .signature-step-content small {
   display: block;
-  font-size: 0.775rem;
+  font-size: 0.8rem;
   color: var(--text-dark-muted);
 }
 
-.signature-arrow {
-  color: var(--border-dark-bright);
+/* Gradient connector line between steps */
+.signature-connector {
   flex-shrink: 0;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cobalt-500), var(--ice-400));
+  border-radius: 1px;
+  margin-top: 28px;
+  position: relative;
+  opacity: 0.5;
+}
+
+.signature-connector::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ice-400);
+  box-shadow: 0 0 8px var(--ice-glow);
+  animation: pulse-beacon 2.5s infinite;
 }
 
 /* ==========================================================================
@@ -979,49 +1044,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-location-card {
-  background: var(--bg-dark-surface);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
   border: 1px solid var(--border-dark);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.25rem;
-  transition: border-color 0.25s, transform 0.25s;
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  transition: all 0.35s var(--ease-out-cubic);
+  position: relative;
+  overflow: hidden;
+}
+
+.site-location-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cobalt-500), var(--ice-400));
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .site-location-card:hover {
-  border-color: var(--ice-400);
-  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.site-location-card:hover::before {
+  opacity: 1;
 }
 
 .site-city-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .site-city-head h4 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #FFFFFF;
+  line-height: 1.2;
 }
 
-.site-status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--signal-granted);
-  box-shadow: 0 0 8px var(--signal-granted);
-}
-
-.site-location-meta {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-dark-muted);
-  line-height: 1.6;
-}
-
-.site-location-meta span {
-  display: block;
+.site-office-name {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
   color: var(--text-dark-secondary);
+  line-height: 1.5;
 }
 
 /* ==========================================================================
@@ -1032,26 +1101,37 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 2rem 0;
 }
 
 .trust-badge-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--text-dark-secondary);
-  border: 1px solid var(--border-dark);
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  min-width: 145px;
+  transition: all 0.3s var(--ease-out-cubic);
+}
+
+.trust-badge-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
 }
 
 .trust-badge-item svg {
-  width: 18px;
-  height: 18px;
+  width: 28px;
+  height: 28px;
   color: var(--ice-400);
 }
 
@@ -1119,6 +1199,27 @@ h1, h2, h3, h4, h5, h6 {
    Responsive Breakpoint Rules (1440, 1024, 768, 390)
    ========================================================================== */
 
+/* Scroll reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal.is-visible {
+  animation: revealUp 0.7s var(--ease-out-cubic) forwards;
+}
+
 /* 1024px - Tablet Landscape */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -1135,10 +1236,12 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
   }
 
-  .hero-metrics-bar {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  .hero-social-proof {
+    text-align: center;
+  }
+
+  .hero-logos-row {
+    justify-content: center;
   }
 
   .story-grid-2col {
@@ -1161,12 +1264,15 @@ h1, h2, h3, h4, h5, h6 {
   .footer-top-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .signature-connector {
+    width: 32px;
+  }
 }
 
 /* 768px - Tablet Portrait */
 @media (max-width: 768px) {
-  .nav-links-desktop,
-  .nav-actions .nav-status-pill {
+  .nav-links-desktop {
     display: none;
   }
 
@@ -1195,10 +1301,18 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
-  .hero-metrics-bar {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    text-align: center;
+  .signature-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .signature-connector {
+    display: none;
+  }
+
+  .hero-logos-row {
+    gap: 1.5rem;
   }
 }
 

@@ -50,11 +50,6 @@
       </nav>
 
       <div class="nav-actions">
-        <div class="nav-status-pill" title="ACCESS Cloud Infrastructure Status">
-          <span class="status-beacon-green"></span>
-          <span>SYSTEM ARMED · 99.99%</span>
-        </div>
-        <a href="#interactive-sandbox" class="btn btn-secondary-dark btn-sm">Try Simulator</a>
         <a href="demo.html" class="btn btn-primary btn-sm" data-open-demo-modal>Book a Demo</a>
         <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNavDrawer">
           <span></span>
@@ -77,9 +72,9 @@
       <li><a href="demo.html" class="mobile-nav-link" data-open-demo-modal>Book a Demo <span>↗</span></a></li>
     </ul>
     <div style="margin-top:auto; padding-top: 1.5rem; border-top: 1px solid var(--border-dark);">
-      <div class="nav-status-pill" style="display:inline-flex;">
-        <span class="status-beacon-green"></span>
-        <span>Mesh Controller Active · 48 Sites</span>
+      <div style="font-size: 0.8rem; color: var(--text-dark-muted); display: flex; align-items: center; gap: 8px;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--signal-granted);"></span>
+        <span>Platform Status: All Systems Operational</span>
       </div>
     </div>
   </div>
@@ -90,8 +85,10 @@
          Hero Section: Cinematic Entrance & Product Handshake
          ========================================================================== -->
     <section class="hero-wrapper" aria-labelledby="heroHeading">
+      <div class="hero-bg-image" aria-hidden="true">
+        <img src="assets/images/hero-lobby.jpg" alt="" loading="eager" />
+      </div>
       <div class="hero-ambient-glow" aria-hidden="true"></div>
-      <div class="hero-grid-lines" aria-hidden="true"></div>
 
       <div class="container hero-grid">
         <div class="hero-copy-block">
@@ -125,18 +122,14 @@
             </a>
           </div>
 
-          <div class="hero-metrics-bar">
-            <div class="hero-metric-item">
-              <small>Unlock Latency</small>
-              <strong>&lt; 300ms</strong>
-            </div>
-            <div class="hero-metric-item">
-              <small>Architecture</small>
-              <strong>Cloud + Mesh</strong>
-            </div>
-            <div class="hero-metric-item">
-              <small>Identity Sync</small>
-              <strong>Real-Time SCIM</strong>
+          <div class="hero-social-proof">
+            <div class="hero-social-proof-label">Trusted by security teams at leading enterprises</div>
+            <div class="hero-logos-row">
+              <span class="hero-logo-item">Northstar Labs</span>
+              <span class="hero-logo-item">Apex Global</span>
+              <span class="hero-logo-item">Meridian Group</span>
+              <span class="hero-logo-item">Citadel Works</span>
+              <span class="hero-logo-item">Skybridge Capital</span>
             </div>
           </div>
         </div>
@@ -191,12 +184,9 @@
               </div>
 
               <!-- Real-time Door Indicator in Phone -->
-              <div style="margin-top:auto; padding: 0.85rem; background: rgba(255,255,255,0.04); border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 0.725rem; display: flex; align-items: center; justify-content: space-between;">
-                <span style="color: var(--text-dark-secondary);">HQ Lobby Turnstile 02</span>
-                <span style="color: var(--signal-granted); display: flex; align-items: center; gap: 4px;">
-                  <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--signal-granted);"></span>
-                  READY
-                </span>
+              <div style="margin-top:auto; padding: 0.85rem; background: rgba(255,255,255,0.04); border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--text-dark-secondary);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal-granted)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Ready to Unlock</span>
               </div>
             </div>
           </div>
@@ -207,45 +197,66 @@
     <!-- ==========================================================================
          Visual Signature Motif Bar: Digital Credential Crossing Physical Space
          ========================================================================== -->
-    <section class="signature-bar" aria-label="Visual signature: Digital credential crossing physical space">
-      <div class="container signature-grid">
-        <div class="signature-step">
-          <div class="signature-step-num">01</div>
-          <div class="signature-step-content">
-            <strong>Digital Identity</strong>
-            <small>Okta / Entra / Workday</small>
-          </div>
+    <section class="signature-bar" aria-label="How ACCESS works">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 2.5rem;">
+          <span class="eyebrow eyebrow-dark">How It Works</span>
+          <h2 class="section-heading" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">From digital identity to physical space</h2>
         </div>
-        <div class="signature-arrow">→</div>
-        <div class="signature-step">
-          <div class="signature-step-num">02</div>
-          <div class="signature-step-content">
-            <strong>Credential Issued</strong>
-            <small>Apple Wallet / Pass / QR</small>
+        <div class="signature-grid">
+          <div class="signature-step">
+            <div class="signature-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="signature-step-content">
+              <div class="signature-step-num">STEP 01</div>
+              <strong>Digital Identity</strong>
+              <small>Syncs from Okta, Entra, or Workday</small>
+            </div>
           </div>
-        </div>
-        <div class="signature-arrow">→</div>
-        <div class="signature-step">
-          <div class="signature-step-num">03</div>
-          <div class="signature-step-content">
-            <strong>Smart Reader</strong>
-            <small>Triple Unlock &lt; 300ms</small>
+          <div class="signature-connector" aria-hidden="true"></div>
+          <div class="signature-step">
+            <div class="signature-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <div class="signature-step-content">
+              <div class="signature-step-num">STEP 02</div>
+              <strong>Credential Issued</strong>
+              <small>Apple Wallet, Google Wallet, or QR</small>
+            </div>
           </div>
-        </div>
-        <div class="signature-arrow">→</div>
-        <div class="signature-step">
-          <div class="signature-step-num">04</div>
-          <div class="signature-step-content">
-            <strong>Door / Turnstile</strong>
-            <small>Encrypted Latch Release</small>
+          <div class="signature-connector" aria-hidden="true"></div>
+          <div class="signature-step">
+            <div class="signature-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"></rect><circle cx="12" cy="12" r="4"></circle></svg>
+            </div>
+            <div class="signature-step-content">
+              <div class="signature-step-num">STEP 03</div>
+              <strong>Smart Reader</strong>
+              <small>Authenticates in under 300ms</small>
+            </div>
           </div>
-        </div>
-        <div class="signature-arrow">→</div>
-        <div class="signature-step">
-          <div class="signature-step-num">05</div>
-          <div class="signature-step-content">
-            <strong>Physical Space</strong>
-            <small>Floors & Restricted Vaults</small>
+          <div class="signature-connector" aria-hidden="true"></div>
+          <div class="signature-step">
+            <div class="signature-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <div class="signature-step-content">
+              <div class="signature-step-num">STEP 04</div>
+              <strong>Door Unlocks</strong>
+              <small>Encrypted latch release</small>
+            </div>
+          </div>
+          <div class="signature-connector" aria-hidden="true"></div>
+          <div class="signature-step">
+            <div class="signature-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <div class="signature-step-content">
+              <div class="signature-step-num">STEP 05</div>
+              <strong>Access Granted</strong>
+              <small>Floors, zones & restricted areas</small>
+            </div>
           </div>
         </div>
       </div>
@@ -309,34 +320,30 @@
           </div>
 
           <!-- Visual Showcase Card -->
+          <!-- Visual Showcase -->
           <div>
-            <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: clamp(2rem, 4vw, 3rem); box-shadow: var(--shadow-lg); color: #FFFFFF;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
-                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ice-400);">CREDENTIAL SPECIFICATION</span>
-                <span class="nav-status-pill"><span class="status-beacon-green"></span>EAL6+ CERTIFIED</span>
-              </div>
-
-              <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-                <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-                  <small style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dark-muted); display:block; margin-bottom:0.25rem;">PRIMARY METHOD</small>
-                  <strong style="font-size:1.1rem; color:#FFFFFF;">Apple / Google Wallet</strong>
-                  <p style="font-size:0.8rem; color:var(--text-dark-secondary); margin-top:0.4rem;">Bluetooth LE + NFC with 5-hour power reserve reserve mode.</p>
+            <div style="background: linear-gradient(180deg, rgba(37,99,235,0.08) 0%, rgba(9,11,14,0.9) 100%); border: 1px solid rgba(56,189,248,0.15); border-radius: var(--radius-xl); padding: clamp(2.5rem, 5vw, 4rem); text-align: center; position: relative; overflow: hidden;">
+              <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:200px; height:200px; background:radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%); pointer-events:none;"></div>
+              <div style="position:relative; z-index:1;">
+                <div style="width:72px; height:72px; margin:0 auto 1.5rem; border-radius:20px; background: linear-gradient(135deg, var(--cobalt-500), var(--ice-400)); display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 32px rgba(37,99,235,0.4);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                 </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-                  <small style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dark-muted); display:block; margin-bottom:0.25rem;">ENCRYPTION</small>
-                  <strong style="font-size:1.1rem; color:#FFFFFF;">AES-256 / RSA-4096</strong>
-                  <p style="font-size:0.8rem; color:var(--text-dark-secondary); margin-top:0.4rem;">Mutual TLS & end-to-end device cryptographic handshakes.</p>
+                <h3 style="font-size:1.5rem; color:#FFFFFF; margin-bottom:0.75rem;">Your phone is your key</h3>
+                <p style="font-size:0.95rem; color:var(--text-dark-secondary); line-height:1.65; max-width:360px; margin:0 auto 2rem;">Apple Wallet Express Mode. Google Wallet passes. Bluetooth LE + NFC with 5-hour power reserve.</p>
+                <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; max-width:380px; margin:0 auto;">
+                  <div style="background:rgba(255,255,255,0.05); border-radius:12px; padding:1rem 0.75rem; border:1px solid rgba(255,255,255,0.08);">
+                    <div style="font-size:1.5rem; font-weight:700; color:#FFFFFF; margin-bottom:0.2rem;">< 300</div>
+                    <div style="font-size:0.75rem; color:var(--text-dark-muted);">ms unlock</div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05); border-radius:12px; padding:1rem 0.75rem; border:1px solid rgba(255,255,255,0.08);">
+                    <div style="font-size:1.5rem; font-weight:700; color:#FFFFFF; margin-bottom:0.2rem;">EAL6+</div>
+                    <div style="font-size:0.75rem; color:var(--text-dark-muted);">certified</div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05); border-radius:12px; padding:1rem 0.75rem; border:1px solid rgba(255,255,255,0.08);">
+                    <div style="font-size:1.5rem; font-weight:700; color:#FFFFFF; margin-bottom:0.2rem;">AES</div>
+                    <div style="font-size:0.75rem; color:var(--text-dark-muted);">256-bit</div>
+                  </div>
                 </div>
-              </div>
-
-              <!-- Interactive Badge Switcher Preview -->
-              <div style="padding: 1.25rem; background: var(--bg-dark-elevated); border-radius: 12px; border: 1px solid var(--border-dark-bright); font-family: var(--font-mono); font-size: 0.8rem;">
-                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-                  <span style="color:var(--text-dark-muted);">ACTIVE BADGE HOLDER</span>
-                  <span style="color:var(--signal-granted);">VERIFIED ONSITE</span>
-                </div>
-                <div style="font-size:1.1rem; font-family:var(--font-display); font-weight:700; color:#FFFFFF; margin-bottom:0.25rem;">Đỗ Anh Nghĩa</div>
-                <div style="color:var(--ice-400); font-size:0.75rem;">ID: 2026-HQ-DN09 · Floors 01, 02, 03, 04</div>
               </div>
             </div>
           </div>
@@ -562,15 +569,12 @@
           </div>
 
           <!-- Clean integration logo pills -->
-          <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-            <span style="font-family: var(--font-mono); font-size: 0.775rem; color: var(--text-dark-muted);">ENTERPRISE CONNECTORS:</span>
-            <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
-              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Okta Verified</span>
-              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Microsoft Entra ID</span>
-              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Google Cloud Identity</span>
-              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Workday SCIM</span>
-              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Slack Notifications</span>
-            </div>
+          <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2rem;">
+            <span style="font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.3);">Okta</span>
+            <span style="font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.3);">Microsoft Entra</span>
+            <span style="font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.3);">Google Workspace</span>
+            <span style="font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.3);">Workday</span>
+            <span style="font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.3);">Slack</span>
           </div>
         </div>
       </div>
@@ -649,12 +653,12 @@
     <section class="section section-dark" id="interactive-sandbox" aria-labelledby="sandboxHeading">
       <div class="container">
         <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
-          <span class="eyebrow eyebrow-dark">Live Interactive Experience</span>
+          <span class="eyebrow eyebrow-dark">Interactive Experience</span>
           <h2 id="sandboxHeading" class="section-heading">
-            Experience the physical-digital handshake.
+            See how ACCESS works — live.
           </h2>
           <p class="section-subheading" style="margin: 0 auto;">
-            Switch between real employee credentials, temporary visitor passes, and security scenarios. Trigger unlocks and observe how the ACCESS Smart Reader evaluates permissions in sub-seconds.
+            Switch between employee credentials, visitor passes, and security scenarios. Trigger unlocks and see the Smart Reader respond in real time.
           </p>
         </div>
 
@@ -665,14 +669,10 @@
                 <rect x="2" y="2" width="20" height="20" rx="4"></rect>
                 <circle cx="12" cy="12" r="4"></circle>
               </svg>
-              <span>ACCESS SMART READER SIMULATOR · HARDWARE TESTBED</span>
+              <span>ACCESS Smart Reader</span>
             </div>
             <div style="display:flex; align-items:center; gap:0.75rem;">
-              <button id="btnSoundToggle" class="btn btn-secondary-dark btn-sm" aria-label="Toggle synthetic sound effects">Sound: ON</button>
-              <div class="reader-sim-status-badge">
-                <span class="status-beacon-green"></span>
-                <span>MESH CONTROLLER ONLINE</span>
-              </div>
+              <button id="btnSoundToggle" class="btn btn-secondary-dark btn-sm" aria-label="Toggle sound effects">Sound: ON</button>
             </div>
           </div>
 
@@ -710,7 +710,7 @@
             <div class="sim-controls-panel">
               <!-- Persona Selection Tabs -->
               <div>
-                <small style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dark-muted); display:block; margin-bottom:0.5rem;">SELECT ACTIVE CREDENTIAL:</small>
+                <div style="font-size:0.8rem; font-weight:600; color:var(--text-dark-secondary); display:block; margin-bottom:0.5rem;">Select credential:</div>
                 <div class="persona-selector-tabs" role="tablist">
                   <button class="persona-tab-btn active" data-persona="nghia" role="tab" aria-selected="true">
                     <span>Đỗ Anh Nghĩa (Staff)</span>
@@ -731,7 +731,6 @@
               <div class="credential-display-card">
                 <div class="credential-header">
                   <span class="credential-chip" id="credChipType">FULL-TIME EMPLOYEE</span>
-                  <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dark-muted);" id="credDetailToken">0x7F9A..C4E1</span>
                 </div>
                 <div class="credential-user-name" id="credUserName">Đỗ Anh Nghĩa</div>
                 <div class="credential-user-role" id="credUserRole">Product Designer · ACCESS HQ — Ho Chi Minh City</div>
@@ -768,8 +767,16 @@
                 </button>
               </div>
 
-              <!-- Live Event Log -->
-              <div class="sim-event-terminal" id="simTerminalLog" aria-live="polite" aria-label="Real-time access logs"></div>
+              <!-- Visual Status Result -->
+              <div class="sim-status-card" id="simStatusCard" aria-live="polite">
+                <div class="status-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"></rect><circle cx="12" cy="12" r="4"></circle></svg>
+                </div>
+                <div class="status-text">
+                  <span class="status-label">Reader Standing By</span>
+                  <span class="status-detail">Select a credential and trigger an action</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -817,13 +824,25 @@
               </div>
             </div>
             <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
-              <h4 style="font-size:1.05rem; margin-bottom:1rem;">HRIS Provisioning Flow:</h4>
-              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
-                <li>✓ 08:00 — Workday hire status toggled to Active</li>
-                <li>✓ 08:01 — SCIM pushes employee profile to ACCESS</li>
-                <li>✓ 08:01 — Apple Wallet pass link emailed & sent via SMS</li>
-                <li>✓ 08:45 — Employee taps phone at entrance: ACCESS GRANTED</li>
-              </ul>
+              <h4 style="font-size:1.05rem; margin-bottom:1.25rem;">What happens automatically:</h4>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Workday status</strong> toggles to Active</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">SCIM sync</strong> pushes profile to ACCESS instantly</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Apple Wallet pass</strong> emailed and sent via SMS</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-granted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Employee taps phone</strong> at entrance — access granted</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -841,13 +860,25 @@
               </div>
             </div>
             <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
-              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Guest Arrival Flow:</h4>
-              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
-                <li>✓ 09:55 — Guest scans QR pass at Lobby Turnstile</li>
-                <li>✓ 09:55 — Slack Bot: "Marcus Chen (Figma) has arrived at Lobby"</li>
-                <li>✓ 09:56 — Turnstile unlatches; elevator preset to Floor 03</li>
-                <li>✓ 12:00 — Scheduled meeting ends: Pass deactivates automatically</li>
-              </ul>
+              <h4 style="font-size:1.05rem; margin-bottom:1.25rem;">What happens automatically:</h4>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Guest scans QR</strong> at lobby turnstile</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Host notified</strong> via Slack that guest has arrived</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Elevator preset</strong> to Floor 03 automatically</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-warning);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Meeting ends</strong> — pass deactivates automatically</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -861,12 +892,21 @@
               </p>
             </div>
             <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
-              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Contractor Enclosure:</h4>
-              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
-                <li>✓ Authorized: Server Room 4B (13:00–15:00)</li>
-                <li>✕ Blocked: Executive Floor 04 (Access Denied logged)</li>
-                <li>✓ 15:00:01: Pass automatically revoked across all controllers</li>
-              </ul>
+              <h4 style="font-size:1.05rem; margin-bottom:1.25rem;">Permission boundaries:</h4>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-granted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Authorized:</strong> Server Room 4B during work hours only</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-denied);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Blocked:</strong> Executive Floor 04 — access denied and logged</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-warning);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Auto-expiry:</strong> Pass revoked across all controllers</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -880,12 +920,21 @@
               </p>
             </div>
             <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
-              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Revocation Benchmark:</h4>
-              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
-                <li>✓ Device revocation command broadcast via cloud mesh</li>
-                <li>✓ 48 smart readers updated in 0.42 seconds</li>
-                <li>✓ Replacement temporary pass issued to backup device</li>
-              </ul>
+              <h4 style="font-size:1.05rem; margin-bottom:1.25rem;">What happens instantly:</h4>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-denied);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Revocation broadcast</strong> via encrypted cloud mesh</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">All 48 readers updated</strong> in under half a second</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-granted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Replacement pass</strong> issued to backup device</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -899,12 +948,21 @@
               </p>
             </div>
             <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
-              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Audit Trail Guarantee:</h4>
-              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
-                <li>✓ Zero orphan badges circulating in the field</li>
-                <li>✓ Comprehensive SOC 2 audit log generated automatically</li>
-                <li>✓ Security operations dashboard confirms zero residual access</li>
-              </ul>
+              <h4 style="font-size:1.05rem; margin-bottom:1.25rem;">Audit trail guarantee:</h4>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Zero orphan badges</strong> circulating in the field</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cobalt-500);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">SOC 2 audit log</strong> generated automatically</div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div style="width:28px; height:28px; border-radius:50%; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--signal-granted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div style="font-size:0.875rem; color:var(--text-light-secondary);"><strong style="color:var(--text-light-primary);">Confirmed zero</strong> residual access across all sites</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -937,17 +995,13 @@
       <div class="container">
         <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom: 3rem;">
           <div>
-            <span class="eyebrow eyebrow-dark">Chapter 06 · Multi-Site Governance</span>
+            <span class="eyebrow eyebrow-dark">Global Presence</span>
             <h2 id="sec06Heading" class="section-heading">
               One platform across every site.
             </h2>
             <p class="section-subheading">
-              Manage thousands of doors, multiple headquarters, and global regional hubs from a single cloud console. Seamless roaming for international employees.
+              Manage thousands of doors, multiple headquarters, and global regional hubs from a single cloud console.
             </p>
-          </div>
-          <div class="nav-status-pill">
-            <span class="status-beacon-green"></span>
-            <span>ALL HUBS OPERATIONAL</span>
           </div>
         </div>
 
@@ -955,61 +1009,36 @@
           <div class="site-location-card">
             <div class="site-city-head">
               <h4>Ho Chi Minh City</h4>
-              <span class="site-status-dot"></span>
             </div>
-            <div class="site-location-meta">
-              <span>ACCESS HQ Campus</span>
-              <span>Time: <strong data-timezone="Asia/Ho_Chi_Minh">--:--</strong></span>
-              <span>Doors: 48 · Online</span>
-            </div>
+            <div class="site-office-name">ACCESS HQ Campus</div>
           </div>
 
           <div class="site-location-card">
             <div class="site-city-head">
               <h4>Singapore</h4>
-              <span class="site-status-dot"></span>
             </div>
-            <div class="site-location-meta">
-              <span>Marina One Hub</span>
-              <span>Time: <strong data-timezone="Asia/Singapore">--:--</strong></span>
-              <span>Doors: 32 · Online</span>
-            </div>
+            <div class="site-office-name">Marina One Hub</div>
           </div>
 
           <div class="site-location-card">
             <div class="site-city-head">
               <h4>London</h4>
-              <span class="site-status-dot"></span>
             </div>
-            <div class="site-location-meta">
-              <span>Bishopsgate Tower</span>
-              <span>Time: <strong data-timezone="Europe/London">--:--</strong></span>
-              <span>Doors: 24 · Online</span>
-            </div>
+            <div class="site-office-name">Bishopsgate Tower</div>
           </div>
 
           <div class="site-location-card">
             <div class="site-city-head">
               <h4>New York</h4>
-              <span class="site-status-dot"></span>
             </div>
-            <div class="site-location-meta">
-              <span>Manhattan West</span>
-              <span>Time: <strong data-timezone="America/New_York">--:--</strong></span>
-              <span>Doors: 56 · Online</span>
-            </div>
+            <div class="site-office-name">Manhattan West</div>
           </div>
 
           <div class="site-location-card">
             <div class="site-city-head">
               <h4>Tokyo</h4>
-              <span class="site-status-dot"></span>
             </div>
-            <div class="site-location-meta">
-              <span>Roppongi Hills</span>
-              <span>Time: <strong data-timezone="Asia/Tokyo">--:--</strong></span>
-              <span>Doors: 18 · Online</span>
-            </div>
+            <div class="site-office-name">Roppongi Hills</div>
           </div>
         </div>
       </div>

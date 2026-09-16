@@ -148,7 +148,7 @@
   const doorStrikeDisplay = document.getElementById('doorStrikeDisplay');
   const doorStrikeDot = document.getElementById('doorStrikeDot');
   const doorStrikeStatus = document.getElementById('doorStrikeStatus');
-  const terminalLog = document.getElementById('simTerminalLog');
+  const statusCard = document.getElementById('simStatusCard');
   const personaTabs = document.querySelectorAll('[data-persona]');
 
   // Credential View Elements
@@ -157,17 +157,29 @@
   const credType = document.getElementById('credChipType');
   const credFloor = document.getElementById('credDetailFloor');
   const credSchedule = document.getElementById('credDetailSchedule');
-  const credToken = document.getElementById('credDetailToken');
 
-  function appendLog(msg, type = 'info') {
-    if (!terminalLog) return;
-    const now = new Date();
-    const timeStr = now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0');
-    const line = document.createElement('div');
-    line.className = `terminal-line ${type}`;
-    line.textContent = `[${timeStr}] ${msg}`;
-    terminalLog.appendChild(line);
-    terminalLog.scrollTop = terminalLog.scrollHeight;
+  function updateStatusCard(label, detail, variant = '') {
+    if (!statusCard) return;
+    // Set variant class
+    statusCard.className = 'sim-status-card' + (variant ? ' status-' + variant : '');
+    // Update icon based on variant
+    const iconEl = statusCard.querySelector('.status-icon');
+    if (iconEl) {
+      if (variant === 'granted') {
+        iconEl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+      } else if (variant === 'denied') {
+        iconEl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      } else if (variant === 'lockdown') {
+        iconEl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>';
+      } else {
+        iconEl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"></rect><circle cx="12" cy="12" r="4"></circle></svg>';
+      }
+    }
+    // Update text
+    const labelEl = statusCard.querySelector('.status-label');
+    const detailEl = statusCard.querySelector('.status-detail');
+    if (labelEl) labelEl.textContent = label;
+    if (detailEl) detailEl.textContent = detail;
   }
 
   function updateCredentialView() {
@@ -180,7 +192,6 @@
     }
     if (credFloor) credFloor.textContent = activePersona.permissions;
     if (credSchedule) credSchedule.textContent = activePersona.schedule;
-    if (credToken) credToken.textContent = activePersona.tokenHex;
   }
 
   function setReaderState(stateClass) {
@@ -211,19 +222,19 @@
   function runUnlockSequence(method = 'TAP') {
     if (isSimulating) return;
     if (isLockdown) {
-      appendLog(`ACCESS_BLOCKED: Site in Emergency Lockdown state. All unlocks rejected.`, 'denied');
+      updateStatusCard('Lockdown Active', 'All access blocked during emergency', 'lockdown');
       setReaderState('state-lockdown');
       playTone('denied');
       return;
     }
 
     isSimulating = true;
-    appendLog(`SIGNAL_DETECT: ${method} from '${activePersona.name}' (${activePersona.credentialType})`);
+    updateStatusCard('Detecting credential...', `${method} signal from ${activePersona.name}`);
     setReaderState('state-detecting');
 
     // Step 1: Crypto handshake
     setTimeout(() => {
-      appendLog(`CRYPTO_EXCHANGE: Validating token ${activePersona.tokenHex} with local controller mesh...`);
+      updateStatusCard('Validating identity...', 'Checking permissions with cloud controller');
 
       // Step 2: Validation result
       setTimeout(() => {
@@ -231,23 +242,24 @@
           setReaderState('state-granted');
           setDoorStrike('UNLOCKED');
           playTone('granted');
-          appendLog(`ACCESS_GRANTED: ID verified. Permission: ${activePersona.permissions}. Door relay triggered.`, 'success');
+          updateStatusCard('Access Granted', `${activePersona.name} — ${activePersona.permissions}`, 'granted');
 
           // Auto-reset after 4.5 seconds
           setTimeout(() => {
             setReaderState('state-idle');
             setDoorStrike('LOCKED');
-            appendLog(`RELAY_LATCH: Magnetic lock re-engaged. System armed.`);
+            updateStatusCard('Reader Standing By', 'Door secured. Ready for next credential.');
             isSimulating = false;
           }, 4500);
         } else {
           setReaderState('state-denied');
           setDoorStrike('LOCKED');
           playTone('denied');
-          appendLog(`ACCESS_DENIED: Policy check failed! Status: ${activePersona.type}. Security event logged.`, 'denied');
+          updateStatusCard('Access Denied', `${activePersona.name} — ${activePersona.type}`, 'denied');
 
           setTimeout(() => {
             setReaderState('state-idle');
+            updateStatusCard('Reader Standing By', 'Security event logged. Select another credential.');
             isSimulating = false;
           }, 2500);
         }
@@ -263,13 +275,12 @@
       setReaderState('state-lockdown');
       setDoorStrike('LOCKDOWN');
       playTone('lockdown');
-      appendLog(`CRITICAL_ALERT: Site-wide Emergency Lockdown initiated by Security Admin.`, 'denied');
-      appendLog(`LOCKDOWN_ACTIVE: All 48 readers switched to SECURED_ISOLATION.`, 'denied');
+      updateStatusCard('Emergency Lockdown', 'All doors sealed. Egress remains compliant.', 'lockdown');
       if (btn) btn.innerHTML = `<span>Release Site Lockdown</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
     } else {
       setReaderState('state-idle');
       setDoorStrike('LOCKED');
-      appendLog(`LOCKDOWN_CLEARED: Lockdown released. All perimeter and floor readers restored to ARMED.`, 'success');
+      updateStatusCard('Lockdown Released', 'All readers restored. System armed.', 'granted');
       if (btn) btn.innerHTML = `<span>Simulate Site Lockdown</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
     }
   }
@@ -283,7 +294,7 @@
         tab.classList.add('active');
         activePersona = PERSONAS[personaKey];
         updateCredentialView();
-        appendLog(`PERSONA_SWITCH: Active credential set to '${activePersona.name}' (${activePersona.type})`);
+        updateStatusCard(`${activePersona.name}`, `${activePersona.type} — ${activePersona.credentialType}`);
       }
     });
   });
@@ -309,12 +320,10 @@
     });
   }
 
-  // Initialize
   updateCredentialView();
   setReaderState('state-idle');
   setDoorStrike('LOCKED');
-  appendLog(`SYSTEM_INITIALIZED: ACCESS Cloud Controller Online (Firmware v4.8.2-prod).`);
-  appendLog(`READY: Approach with mobile credential or click triggers below.`);
+  updateStatusCard('Reader Standing By', 'Select a credential and trigger an action');
 
   // Expose on window for external triggers
   window.AccessSimulator = {
