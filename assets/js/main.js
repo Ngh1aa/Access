@@ -6,6 +6,22 @@
 (function () {
   'use strict';
 
+  // --- 0. Secure Pixel Infrastructure visual layer ---
+  const pixelThemeStyles = [
+    'assets/css/pixel-tech.css',
+    'assets/css/pixel-tech-hardening.css'
+  ];
+
+  pixelThemeStyles.forEach((href) => {
+    if (document.querySelector(`link[href="${href}"]`)) return;
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = href;
+    stylesheet.dataset.accessTheme = 'secure-pixel-infrastructure';
+    document.head.appendChild(stylesheet);
+  });
+  document.documentElement.classList.add('pixel-tech-ui');
+
   // --- 1. Sticky Header & Blur Effect ---
   const header = document.querySelector('.site-header');
   if (header) {
@@ -165,6 +181,8 @@
         }
       });
     });
+  }
+
   // --- 7. Progressive Scroll Reveal Animation ---
   if ('IntersectionObserver' in window) {
     const revealTargets = document.querySelectorAll(
