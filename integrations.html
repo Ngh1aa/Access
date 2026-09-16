@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise Ecosystem &amp; Integrations — ACCESS</title>
+  <meta name="description" content="Connect ACCESS with Okta, Microsoft Entra, Google Workspace, Workday, Slack, Teams, and video security systems. Automate physical onboarding, offboarding, and real-time alerts." />
+  <meta name="theme-color" content="#090B0E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ACCESS Home">
+        <div class="brand-mark-cube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span>ACCESS</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="access-control.html" class="nav-link">Access Control</a></li>
+          <li><a href="mobile-access.html" class="nav-link">Mobile Access</a></li>
+          <li><a href="visitor-management.html" class="nav-link">Visitor Security</a></li>
+          <li><a href="enterprise.html" class="nav-link">Enterprise</a></li>
+          <li><a href="integrations.html" class="nav-link active">Integrations</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="demo.html" class="btn btn-primary btn-sm" data-open-demo-modal>Book a Demo</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Platform Overview <span>→</span></a></li>
+      <li><a href="access-control.html" class="mobile-nav-link">Cloud Access Control <span>→</span></a></li>
+      <li><a href="mobile-access.html" class="mobile-nav-link">Mobile &amp; Wallet Passes <span>→</span></a></li>
+      <li><a href="visitor-management.html" class="mobile-nav-link">Visitor Management <span>→</span></a></li>
+      <li><a href="enterprise.html" class="mobile-nav-link">Enterprise &amp; Multi-Site <span>→</span></a></li>
+      <li><a href="integrations.html" class="mobile-nav-link active">Integrations <span>→</span></a></li>
+      <li><a href="demo.html" class="mobile-nav-link" data-open-demo-modal>Book a Demo <span>↗</span></a></li>
+    </ul>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-wrapper" style="min-height: 75svh;">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy-block">
+          <div class="hero-tag-badge">
+            <span class="indicator"></span>
+            <span>OPEN REST API &amp; PRE-BUILT CONNECTORS</span>
+          </div>
+
+          <h1 class="hero-title">
+            The glue between IT <br />
+            <span class="accent-gradient">&amp; physical facilities.</span>
+          </h1>
+
+          <p class="hero-desc">
+            ACCESS connects directly into your existing IT identity providers, HR systems, communication channels, and video security infrastructure. No double entry.
+          </p>
+
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Explore API Documentation</a>
+            <a href="#integration-categories" class="btn btn-secondary-dark btn-lg">Browse by Category</a>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-xl); padding: 2.5rem; color:#FFF; box-shadow: var(--shadow-dark-card);">
+          <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ice-400); margin-bottom:0.75rem;">CONTINUOUS SYNC METRIC</div>
+          <div style="font-size:2.5rem; font-family:var(--font-display); font-weight:800; margin-bottom:0.5rem;">0 Manual Syncs</div>
+          <p style="color:var(--text-dark-secondary); font-size:0.925rem; line-height:1.55;">
+            Enterprise teams save an average of 18 hours per week by automating employee badge issuing, offboarding revocation, and guest check-ins.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations Categorized -->
+    <section class="section section-white" id="integration-categories">
+      <div class="container">
+
+        <!-- Category 1: Identity Providers -->
+        <div style="margin-bottom: 4.5rem;">
+          <div style="margin-bottom: 2rem;">
+            <span class="eyebrow">CATEGORY 01</span>
+            <h2 style="font-size: 2rem;">Identity &amp; Single Sign-On (SSO)</h2>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+            <!-- Okta -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">Okta</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">SCIM v2.0</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Users, group memberships, suspended status, and MFA device status.</li>
+                <li><strong>What it enables:</strong> Instant provisioning of Apple Wallet credentials upon group assignment; immediate door revocation upon suspension.</li>
+                <li><strong>Why it matters:</strong> Eliminates orphan badges and ensures SOC 2 compliance.</li>
+              </ul>
+            </div>
+
+            <!-- Microsoft Entra ID -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">Microsoft Entra ID (Azure AD)</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">Graph API</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Active Directory security groups, organizational units (OUs), and building location tags.</li>
+                <li><strong>What it enables:</strong> Conditional physical access policies based on office assignments and security clearance tiers.</li>
+                <li><strong>Why it matters:</strong> Full directory sync without installing local on-premise connector agents.</li>
+              </ul>
+            </div>
+
+            <!-- Google Workspace -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">Google Cloud Identity</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">OAuth 2.0</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Google Workspace user directory and Google Calendar meeting invites.</li>
+                <li><strong>What it enables:</strong> Automatic visitor pre-registration when a calendar invite includes an external email domain.</li>
+                <li><strong>Why it matters:</strong> Zero extra steps for employees hosting client meetings.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Human Resources & People Ops -->
+        <div style="margin-bottom: 4.5rem;">
+          <div style="margin-bottom: 2rem;">
+            <span class="eyebrow">CATEGORY 02</span>
+            <h2 style="font-size: 2rem;">HRIS &amp; People Operations</h2>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+            <!-- Workday -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">Workday</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">Enterprise API</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Employee hire dates, termination dates, manager hierarchies, and remote vs. onsite status.</li>
+                <li><strong>What it enables:</strong> Day-one mobile badge issuance scheduled to activate automatically at 08:00 AM on the employee's start date.</li>
+                <li><strong>Why it matters:</strong> Prevents HR from having to submit separate IT badge tickets.</li>
+              </ul>
+            </div>
+
+            <!-- BambooHR -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">BambooHR</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">Webhooks</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Employee records, office location changes, and contractor contract end dates.</li>
+                <li><strong>What it enables:</strong> Auto-expiration of contractor passes the exact day contract agreements expire.</li>
+                <li><strong>Why it matters:</strong> Closes the contractor security loophole automatically.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Communications & Video Security -->
+        <div>
+          <div style="margin-bottom: 2rem;">
+            <span class="eyebrow">CATEGORY 03</span>
+            <h2 style="font-size: 2rem;">Communications &amp; Video Surveillance</h2>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+            <!-- Slack & Teams -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">Slack &amp; Microsoft Teams</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">Bot Events</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Guest arrival events, door-held-open alerts, and lockdown confirmations.</li>
+                <li><strong>What it enables:</strong> Host receives direct message with visitor photo and an interactive "Allow to Floor" button.</li>
+                <li><strong>Why it matters:</strong> Hosts respond in seconds without leaving their primary work chat.</li>
+              </ul>
+            </div>
+
+            <!-- Video Surveillance -->
+            <div style="background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-size:1.35rem;">Axis &amp; Verkada Video Systems</h3>
+                <span class="trust-badge-item" style="padding:0.25rem 0.6rem; font-size:0.7rem;">RTSP / ONVIF</span>
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li><strong>What syncs:</strong> Camera stream feeds with access control unlock events.</li>
+                <li><strong>What it enables:</strong> Automatic 10-second video clip bookmarking whenever an unauthorized card or forced door event occurs.</li>
+                <li><strong>Why it matters:</strong> Instant visual context without scrubbing hours of separate security footage.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Conversion Banner -->
+    <section class="section section-dark" style="text-align:center;">
+      <div class="container-narrow">
+        <span class="eyebrow eyebrow-dark">EXPAND YOUR STACK</span>
+        <h2 class="section-heading">Connect ACCESS to your workplace tools.</h2>
+        <p class="section-subheading" style="margin: 0 auto 2.5rem;">
+          Our open REST API, webhooks, and certified connectors integrate with your existing technology stack in hours.
+        </p>
+        <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Request Integration Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border:none; padding:0;">
+        <div>&copy; 2026 ACCESS Technologies Inc. · Cloud Physical Access &amp; Visitor Security Platform</div>
+        <div><a href="index.html" style="color:var(--ice-400);">Return to Overview →</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

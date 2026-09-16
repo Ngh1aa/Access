@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Access &amp; Apple Wallet Credentials — ACCESS</title>
+  <meta name="description" content="Turn every smartphone and Apple Watch into a secure enterprise keycard. Native Apple Wallet passes, sub-second tap unlocks, wave-to-unlock intent, and instant zero-trust remote revocation." />
+  <meta name="theme-color" content="#090B0E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ACCESS Home">
+        <div class="brand-mark-cube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span>ACCESS</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="access-control.html" class="nav-link">Access Control</a></li>
+          <li><a href="mobile-access.html" class="nav-link active">Mobile Access</a></li>
+          <li><a href="visitor-management.html" class="nav-link">Visitor Security</a></li>
+          <li><a href="enterprise.html" class="nav-link">Enterprise</a></li>
+          <li><a href="integrations.html" class="nav-link">Integrations</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="demo.html" class="btn btn-primary btn-sm" data-open-demo-modal>Book a Demo</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Platform Overview <span>→</span></a></li>
+      <li><a href="access-control.html" class="mobile-nav-link">Cloud Access Control <span>→</span></a></li>
+      <li><a href="mobile-access.html" class="mobile-nav-link active">Mobile &amp; Wallet Passes <span>→</span></a></li>
+      <li><a href="visitor-management.html" class="mobile-nav-link">Visitor Management <span>→</span></a></li>
+      <li><a href="enterprise.html" class="mobile-nav-link">Enterprise &amp; Multi-Site <span>→</span></a></li>
+      <li><a href="integrations.html" class="mobile-nav-link">Integrations <span>→</span></a></li>
+      <li><a href="demo.html" class="mobile-nav-link" data-open-demo-modal>Book a Demo <span>↗</span></a></li>
+    </ul>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- Hero Showcase: Large Phone Credential Mockup -->
+    <section class="hero-wrapper" style="padding-top: calc(76px + 4rem); min-height: 90svh;">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy-block">
+          <div class="hero-tag-badge">
+            <span class="indicator"></span>
+            <span>NATIVE APPLE &amp; GOOGLE WALLET INTEGRATION</span>
+          </div>
+
+          <h1 class="hero-title">
+            The key you never <br />
+            <span class="accent-gradient">leave behind.</span>
+          </h1>
+
+          <p class="hero-desc">
+            No proprietary apps to open. No pairing screens. Your employee badge lives directly in Apple Wallet alongside payment cards and transit passes.
+          </p>
+
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Deploy Mobile Credentials</a>
+            <a href="#mobile-interactions" class="btn btn-secondary-dark btn-lg">Explore 5 Unlock Modes</a>
+          </div>
+        </div>
+
+        <!-- Phone Mockup Featuring Đỗ Anh Nghĩa -->
+        <div class="phone-mockup-wrapper">
+          <div class="phone-screen">
+            <div class="phone-dynamic-island"></div>
+
+            <div class="wallet-pass-card">
+              <div class="wallet-header">
+                <div class="wallet-logo">
+                  <div class="brand-mark-cube" style="width:20px;height:20px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;">
+                      <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </div>
+                  <span>ACCESS</span>
+                </div>
+                <span class="wallet-pass-title">APPLE WALLET</span>
+              </div>
+
+              <div class="wallet-holder-name">Đỗ Anh Nghĩa</div>
+              <div class="wallet-holder-title">Product Designer · Design Ops</div>
+
+              <div class="wallet-meta-row">
+                <div class="wallet-meta-col">
+                  <small>Site</small>
+                  <strong>ACCESS HQ</strong>
+                </div>
+                <div class="wallet-meta-col">
+                  <small>Floors</small>
+                  <strong>01–04</strong>
+                </div>
+                <div class="wallet-meta-col">
+                  <small>Status</small>
+                  <strong style="color:var(--signal-granted);">EMPLOYEE</strong>
+                </div>
+              </div>
+
+              <div class="wallet-nfc-wave-prompt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="8"></circle>
+                  <line x1="12" y1="2" x2="12" y2="4"></line>
+                  <line x1="12" y1="20" x2="12" y2="22"></line>
+                </svg>
+                <span>Express Mode Active · No Unlock Needed</span>
+              </div>
+            </div>
+
+            <!-- Mobile Interactions Panel Preview -->
+            <div style="margin-top:auto; padding: 1rem; background: var(--bg-dark-card); border-radius: 16px; border: 1px solid var(--border-dark);">
+              <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dark-muted); margin-bottom:0.4rem;">RECENT UNLOCK</div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.875rem; font-weight:600; color:#FFF;">Turnstile 02 (Ground)</span>
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--signal-granted);">09:14 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 Modes of Unlocking -->
+    <section class="section section-white" id="mobile-interactions">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 3.5rem;">
+          <span class="eyebrow">VERSATILE AUTHENTICATION</span>
+          <h2 class="section-heading">Designed for human movement.</h2>
+          <p class="section-subheading">
+            Whether your hands are full carrying morning coffee or you are riding an elevator to a restricted design studio, ACCESS adapts to your intent.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+            <div class="feature-pill-icon" style="margin-bottom:1.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+            </div>
+            <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">Tap to Unlock</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.925rem; line-height:1.6;">
+              Hold your iPhone or Apple Watch within 5cm of the reader. Sub-second cryptographic handshake confirms permissions.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+            <div class="feature-pill-icon" style="margin-bottom:1.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">Wave to Unlock</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.925rem; line-height:1.6;">
+              Leave your phone in your pocket or bag. Simply wave your hand in front of the optical reader sensor to confirm intentional entry.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+            <div class="feature-pill-icon" style="margin-bottom:1.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">Cloud Remote Grant</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.925rem; line-height:1.6;">
+              Let a courier into the shipping dock or buzz an executive guest in from your desk anywhere in the world via secure encrypted cloud relay.
+            </p>
+          </div>
+        </div>
+
+        <!-- Lost Device Revocation Architecture -->
+        <div style="margin-top: 3.5rem; background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: clamp(2rem, 4vw, 3.5rem); color: #FFF;">
+          <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items:center;">
+            <div>
+              <span class="eyebrow eyebrow-dark">ZERO-TRUST SECURITY</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem; color:#FFF;">Instant lost device kill switch.</h3>
+              <p style="color:var(--text-dark-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                Traditional plastic access badges get lost, loaned to colleagues, or left in rideshares without anyone noticing for days. When an ACCESS mobile device is reported lost or disabled via MDM, its digital certificate is immediately revoked across every door in &lt; 500ms.
+              </p>
+              <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--signal-granted);">
+                ✓ Zero physical rekeying required · Real-time SOC 2 revocation logs
+              </div>
+            </div>
+            <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 16px; padding: 1.75rem;">
+              <div style="font-family:var(--font-mono); font-size:0.75rem; color:#F87171; margin-bottom:0.5rem;">REVOCATION PROTOCOL</div>
+              <strong style="display:block; font-size:1.1rem; color:#FFF; margin-bottom:0.5rem;">Certificate Invalidation</strong>
+              <p style="font-size:0.825rem; color:var(--text-dark-secondary); line-height:1.5;">
+                Key 0x7F9A..C4E1 pushed to reader certificate blacklist. Local controllers block device even during offline internet outages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversion Banner -->
+    <section class="section section-dark" style="text-align:center;">
+      <div class="container-narrow">
+        <span class="eyebrow eyebrow-dark">MODERNIZE CREDENTIALS</span>
+        <h2 class="section-heading">Transition your team to Apple Wallet today.</h2>
+        <p class="section-subheading" style="margin: 0 auto 2.5rem;">
+          Provision your first test mobile badge in under 10 minutes. Works alongside existing physical cards during your phased rollout.
+        </p>
+        <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Schedule Mobile Rollout Consult</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border:none; padding:0;">
+        <div>&copy; 2026 ACCESS Technologies Inc. · Cloud Physical Access &amp; Visitor Security Platform</div>
+        <div><a href="index.html" style="color:var(--ice-400);">Return to Overview →</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

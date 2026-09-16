@@ -1,56 +1,1221 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f5f7f6" />
-  <title>ACCESS — Enterprise Identity & Permission Console</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="overrides.css" />
+  <title>ACCESS — Cloud Physical Access & Visitor Security Platform</title>
+  <meta name="description" content="Access without friction. Security without compromise. Control who enters, where they can go and for how long across every workplace from one secure cloud platform." />
+  <meta name="theme-color" content="#090B0E" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="ACCESS — Cloud Physical Access & Visitor Security Platform" />
+  <meta property="og:description" content="Control who enters, where they can go and for how long across every workplace from one secure cloud platform." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, DM Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <div class="brand"><div class="brand-mark"><span></span><span></span><span></span></div><span class="brand-name">ACCESS</span><span class="brand-beta">BETA</span></div>
-      <div class="org-switcher"><div class="org-avatar">N</div><div><strong>Northstar Labs</strong><small>Enterprise workspace</small></div><button class="icon-btn" aria-label="Switch workspace">⌄</button></div>
-      <nav class="nav" aria-label="Primary navigation">
-        <div class="nav-label">Workspace</div>
-        <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span>Overview</button>
-        <div class="nav-label">People</div>
-        <button class="nav-item" data-view="people"><span class="nav-icon">♙</span>Users <em>248</em></button>
-        <button class="nav-item" data-view="groups"><span class="nav-icon">♧</span>Groups <em>32</em></button>
-        <button class="nav-item" data-view="guests"><span class="nav-icon">◇</span>Guests <em>18</em></button>
-        <div class="nav-label">Access</div>
-        <button class="nav-item" data-view="roles"><span class="nav-icon">⊙</span>Roles</button>
-        <button class="nav-item" data-view="permissions"><span class="nav-icon">▦</span>Permissions <em class="accent-count">4</em></button>
-        <button class="nav-item" data-view="apps"><span class="nav-icon">⌘</span>App access</button>
-        <div class="nav-label">Security</div>
-        <button class="nav-item" data-view="auth"><span class="nav-icon">◎</span>Authentication</button>
-        <button class="nav-item" data-view="alerts"><span class="nav-icon">△</span>Alerts <em class="alert-count">3</em></button>
-        <button class="nav-item" data-view="sessions"><span class="nav-icon">◌</span>Sessions</button>
-        <button class="nav-item" data-view="audit"><span class="nav-icon">≡</span>Audit log</button>
+
+  <!-- ==========================================================================
+       Global Site Header
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ACCESS Home">
+        <div class="brand-mark-cube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span>ACCESS</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="index.html" class="nav-link active">Overview</a></li>
+          <li><a href="access-control.html" class="nav-link">Access Control</a></li>
+          <li><a href="mobile-access.html" class="nav-link">Mobile Access</a></li>
+          <li><a href="visitor-management.html" class="nav-link">Visitor Security</a></li>
+          <li><a href="enterprise.html" class="nav-link">Enterprise</a></li>
+          <li><a href="integrations.html" class="nav-link">Integrations</a></li>
+        </ul>
       </nav>
-      <div class="sidebar-bottom"><div class="security-score"><div class="score-ring">92<span>%</span></div><div><small>Security posture</small><strong>Healthy</strong></div><span class="status-dot"></span></div><button class="help-link">? <span>Help & shortcuts</span><kbd>⌘ K</kbd></button><div class="profile"><div class="profile-avatar">AK</div><div><strong>Alex Kim</strong><small>Org admin</small></div><button class="icon-btn">···</button></div></div>
-    </aside>
-    <main class="main-content">
-      <header class="topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="breadcrumbs"><span>Northstar Labs</span><b>/</b><strong id="breadcrumbCurrent">Overview</strong></div><div class="topbar-actions"><button class="icon-btn top-icon" aria-label="Search">⌕</button><button class="icon-btn top-icon has-dot" aria-label="Notifications">◔</button><button class="top-avatar">AK</button></div></header>
-      <section class="page" id="pageContent">
-        <div class="page-heading"><div><div class="eyebrow"><span class="pulse"></span>LIVE SECURITY OVERVIEW <span class="mono">•</span> SEP 16, 2026</div><h1>Good morning, Alex<span class="period">.</span></h1><p>One place to understand who can access what — and why.</p></div><div class="heading-actions"><button class="btn secondary" id="exportBtn">↓ <span>Export report</span></button><button class="btn primary" id="addBtn">+ <span>Invite people</span></button></div></div>
-        <div class="alert-banner" id="alertBanner"><div class="alert-symbol">!</div><div class="alert-copy"><strong>Suspicious login detected</strong><span>maria.santos@northstar.dev signed in from an unrecognized device in <b>São Paulo, BR</b>.</span></div><span class="alert-time">12 min ago</span><button class="btn alert-btn" id="inspectBtn">Inspect alert <span>↗</span></button><button class="close-alert" id="closeAlert">×</button></div>
-        <div class="metrics-grid"><div class="metric-card"><div class="metric-top"><span>Active identities</span><span class="metric-icon blue">♙</span></div><div class="metric-value">248</div><div class="metric-foot"><span class="trend up">↗ 8.4%</span><span>vs last month</span></div></div><div class="metric-card"><div class="metric-top"><span>Policy compliance</span><span class="metric-icon green">✓</span></div><div class="metric-value">96.8<span class="unit">%</span></div><div class="metric-foot"><span class="trend up">↗ 2.1%</span><span>vs last month</span></div></div><div class="metric-card"><div class="metric-top"><span>Access exceptions</span><span class="metric-icon amber">⊘</span></div><div class="metric-value">04</div><div class="metric-foot"><span class="trend down">↘ 2 resolved</span><span>this week</span></div></div><div class="metric-card"><div class="metric-top"><span>Open alerts</span><span class="metric-icon red">△</span></div><div class="metric-value">03</div><div class="metric-foot"><span class="trend neutral">• 1 critical</span><span>needs review</span></div></div></div>
-        <div class="section-row"><div><div class="section-kicker">CONTROL PLANE</div><h2>Access map</h2><p class="section-sub">A living view of identity, policy, and app access across your workspace.</p></div><button class="text-btn" id="viewMatrix">View permission matrix <span>→</span></button></div>
-        <div class="access-map"><div class="map-line line-one"></div><div class="map-line line-two"></div><div class="map-node node-identity"><span class="node-glyph">♙</span><div><small>IDENTITIES</small><strong>248 people</strong></div><span class="node-chevron">→</span></div><div class="map-node node-role"><span class="node-glyph">⊙</span><div><small>ROLES</small><strong>12 active roles</strong></div><span class="node-chevron">→</span></div><div class="map-node node-policy"><span class="node-glyph">◈</span><div><small>POLICIES</small><strong>08 enforced</strong></div><span class="node-chevron">→</span></div><div class="map-node node-apps"><span class="node-glyph">⌘</span><div><small>APPLICATIONS</small><strong>36 connected apps</strong></div><span class="node-chevron">→</span></div><div class="map-insight"><span class="insight-mark">✦</span><div><strong>Least privilege is holding.</strong><span>98.2% of access is policy-derived.</span></div><span class="insight-arrow">↗</span></div></div>
-        <div class="section-row matrix-heading"><div><div class="section-kicker">ACCESS CONTROL</div><h2>Permission matrix</h2><p class="section-sub">See effective access across roles, resources, and actions.</p></div><div class="matrix-actions"><button class="btn secondary" id="filterBtn">≡ <span>Filters</span><b class="filter-badge">2</b></button><button class="btn secondary" id="newRoleBtn">+ <span>New role</span></button></div></div>
-        <div class="matrix-card"><div class="matrix-toolbar"><div class="role-select"><span class="role-dot"></span><span>Engineering</span><span class="select-caret">⌄</span></div><div class="matrix-search">⌕<input id="matrixSearch" placeholder="Search permissions..." /></div><div class="view-toggle"><button class="toggle active">Effective access</button><button class="toggle">Changes</button></div><button class="icon-btn">···</button></div><div class="matrix-legend"><span><i class="legend-box allow"></i>Explicit allow</span><span><i class="legend-box inherited"></i>Inherited</span><span><i class="legend-box deny"></i>Denied</span><span><i class="legend-box conflict"></i>Conflict</span><span class="legend-note">Role: <b>Engineering</b> <span>24 members</span></span></div><div class="table-wrap"><table class="permission-table"><thead><tr><th class="resource-col">RESOURCE <span>↕</span></th><th>VIEW</th><th>CREATE</th><th>EDIT</th><th>DELETE</th><th>SHARE</th><th>ADMIN</th><th></th></tr></thead><tbody id="permissionRows"><tr data-resource="customer records"><td><div class="resource"><span class="resource-icon cyan">▣</span><div><strong>Customer records</strong><small>CRM · 4 scopes</small></div></div></td><td><button class="permission inherited" title="Inherited access">✓<span>Inherited</span></button></td><td><button class="permission allow" title="Explicit allow">✓<span>Explicit</span></button></td><td><button class="permission allow" title="Explicit allow">✓<span>Explicit</span></button></td><td><button class="permission deny" title="Denied">—<span>Denied</span></button></td><td><button class="permission inherited" title="Inherited access">✓<span>Inherited</span></button></td><td><button class="permission conflict" title="Conflict">!</button></td><td><button class="row-menu">···</button></td></tr><tr data-resource="production database"><td><div class="resource"><span class="resource-icon purple">▤</span><div><strong>Production database</strong><small>Infrastructure · 2 scopes</small></div></div></td><td><button class="permission inherited">✓<span>Inherited</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="row-menu">···</button></td></tr><tr data-resource="design workspace"><td><div class="resource"><span class="resource-icon coral">✧</span><div><strong>Design workspace</strong><small>Product · 6 scopes</small></div></div></td><td><button class="permission allow">✓<span>Explicit</span></button></td><td><button class="permission allow">✓<span>Explicit</span></button></td><td><button class="permission inherited">✓<span>Inherited</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission allow">✓<span>Explicit</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="row-menu">···</button></td></tr><tr data-resource="analytics warehouse"><td><div class="resource"><span class="resource-icon green">◒</span><div><strong>Analytics warehouse</strong><small>Data · 3 scopes</small></div></div></td><td><button class="permission inherited">✓<span>Inherited</span></button></td><td><button class="permission inherited">✓<span>Inherited</span></button></td><td><button class="permission inherited">✓<span>Inherited</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="row-menu">···</button></td></tr><tr data-resource="billing console"><td><div class="resource"><span class="resource-icon amber">◫</span><div><strong>Billing console</strong><small>Finance · 1 scope</small></div></div></td><td><button class="permission inherited">✓<span>Inherited</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="permission deny">—<span>Denied</span></button></td><td><button class="row-menu">···</button></td></tr></tbody></table></div><div class="matrix-footer"><span>Showing <b>5</b> of 36 resources</span><button class="pagination active">1</button><button class="pagination">2</button><button class="pagination">3</button><span>···</span><button class="pagination">8</button><button class="next-page">Next →</button></div></div>
-        <div class="bottom-grid"><div class="activity-card"><div class="card-heading"><div><div class="section-kicker">RECENT ACTIVITY</div><h3>Audit trail</h3></div><button class="text-btn">View all →</button></div><div class="activity"><div class="activity-icon blue">↗</div><div><strong>Role updated</strong><span>Alex Kim changed <b>Engineering</b> permissions</span></div><time>8m</time></div><div class="activity"><div class="activity-icon purple">♙</div><div><strong>Guest invited</strong><span>jordan.lee@orbit.io added as a guest</span></div><time>42m</time></div><div class="activity"><div class="activity-icon amber">!</div><div><strong>Policy exception</strong><span>MFA bypass requested for <b>CI bot</b></span></div><time>2h</time></div></div><div class="policy-card"><div class="card-heading"><div><div class="section-kicker">POLICY HEALTH</div><h3>Control coverage</h3></div><span class="healthy-pill">Healthy</span></div><div class="coverage"><div class="coverage-ring"><span>96</span><small>%</small></div><div><strong>Strong controls</strong><span>3 recommendations to reach 100%</span></div></div><div class="coverage-bar"><span></span></div><div class="coverage-foot"><span>24 of 25 controls active</span><button class="text-btn">Review →</button></div></div></div>
-      </section>
-    </main>
+
+      <div class="nav-actions">
+        <div class="nav-status-pill" title="ACCESS Cloud Infrastructure Status">
+          <span class="status-beacon-green"></span>
+          <span>SYSTEM ARMED · 99.99%</span>
+        </div>
+        <a href="#interactive-sandbox" class="btn btn-secondary-dark btn-sm">Try Simulator</a>
+        <a href="demo.html" class="btn btn-primary btn-sm" data-open-demo-modal>Book a Demo</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link active">Platform Overview <span>→</span></a></li>
+      <li><a href="access-control.html" class="mobile-nav-link">Cloud Access Control <span>→</span></a></li>
+      <li><a href="mobile-access.html" class="mobile-nav-link">Mobile & Wallet Passes <span>→</span></a></li>
+      <li><a href="visitor-management.html" class="mobile-nav-link">Visitor Management <span>→</span></a></li>
+      <li><a href="enterprise.html" class="mobile-nav-link">Enterprise & Multi-Site <span>→</span></a></li>
+      <li><a href="integrations.html" class="mobile-nav-link">Integrations <span>→</span></a></li>
+      <li><a href="demo.html" class="mobile-nav-link" data-open-demo-modal>Book a Demo <span>↗</span></a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top: 1.5rem; border-top: 1px solid var(--border-dark);">
+      <div class="nav-status-pill" style="display:inline-flex;">
+        <span class="status-beacon-green"></span>
+        <span>Mesh Controller Active · 48 Sites</span>
+      </div>
+    </div>
   </div>
-  <div class="drawer-backdrop" id="drawerBackdrop"></div><aside class="alert-drawer" id="alertDrawer"><div class="drawer-header"><div><div class="eyebrow warning">SECURITY ALERT <span class="mono">#AL-2094</span></div><h2>Suspicious login</h2></div><button class="close-drawer" id="closeDrawer">×</button></div><div class="drawer-risk"><div class="risk-score"><span>87</span><small>/100</small></div><div><strong>High risk</strong><span>New device · impossible travel</span></div><span class="risk-badge">OPEN</span></div><div class="user-profile"><div class="large-avatar">MS</div><div><strong>Maria Santos</strong><span>maria.santos@northstar.dev</span><small>Engineering · Member</small></div><button class="text-btn">View profile →</button></div><div class="detail-section"><div class="detail-label">SIGN-IN CONTEXT</div><div class="detail-row"><span>Location</span><strong>São Paulo, Brazil <small>· 03:42 local</small></strong></div><div class="detail-row"><span>Device</span><strong>Chrome on Windows <small>· first seen</small></strong></div><div class="detail-row"><span>IP address</span><strong class="mono">177.54.21.88</strong></div><div class="detail-row"><span>Session</span><strong>Active now <i class="live-dot"></i></strong></div></div><div class="detail-section"><div class="detail-label">WHY THIS WAS FLAGGED</div><div class="flag-item"><span>!</span><div><strong>Impossible travel</strong><small>Previous sign-in was 9,214 km away in London 38 min ago.</small></div></div><div class="flag-item"><span>!</span><div><strong>Unrecognized device</strong><small>Device is not enrolled in Northstar's endpoint policy.</small></div></div></div><div class="drawer-actions"><button class="btn danger" id="revokeBtn">Revoke session</button><button class="btn secondary" id="dismissBtn">Dismiss alert</button></div><div class="drawer-footer">Any action will be recorded in <button class="text-btn">Audit log ↗</button></div></aside>
-  <div class="toast" id="toast"><span class="toast-check">✓</span><span id="toastText">Action completed</span></div>
-  <script src="app.js"></script>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         Hero Section: Cinematic Entrance & Product Handshake
+         ========================================================================== -->
+    <section class="hero-wrapper" aria-labelledby="heroHeading">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy-block">
+          <div class="hero-tag-badge">
+            <span class="indicator"></span>
+            <span>ENTERPRISE PHYSICAL ACCESS & VISITOR SECURITY</span>
+          </div>
+
+          <h1 id="heroHeading" class="hero-title">
+            Access without friction. <br />
+            <span class="accent-gradient">Security without compromise.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Control who enters, where they can go, and for how long — across every workplace, turnstile, and server vault from one cloud-managed platform.
+          </p>
+
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>
+              Book a Demo
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#interactive-sandbox" class="btn btn-secondary-dark btn-lg">
+              Explore ACCESS
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-metrics-bar">
+            <div class="hero-metric-item">
+              <small>Unlock Latency</small>
+              <strong>&lt; 300ms</strong>
+            </div>
+            <div class="hero-metric-item">
+              <small>Architecture</small>
+              <strong>Cloud + Mesh</strong>
+            </div>
+            <div class="hero-metric-item">
+              <small>Identity Sync</small>
+              <strong>Real-Time SCIM</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Physical Reader + Apple Wallet Credential Presentation -->
+        <div class="hero-media-showcase" aria-label="ACCESS Hardware & Mobile Credential Interface">
+          <div class="phone-mockup-wrapper">
+            <div class="phone-screen">
+              <div class="phone-dynamic-island"></div>
+
+              <!-- Apple Wallet Pass for Đỗ Anh Nghĩa -->
+              <div class="wallet-pass-card">
+                <div class="wallet-header">
+                  <div class="wallet-logo">
+                    <div class="brand-mark-cube" style="width:20px;height:20px;">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;">
+                        <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                    </div>
+                    <span>ACCESS</span>
+                  </div>
+                  <span class="wallet-pass-title">EXPRESS PASS</span>
+                </div>
+
+                <div class="wallet-holder-name">Đỗ Anh Nghĩa</div>
+                <div class="wallet-holder-title">Product Designer · Design Ops</div>
+
+                <div class="wallet-meta-row">
+                  <div class="wallet-meta-col">
+                    <small>Location</small>
+                    <strong>ACCESS HQ</strong>
+                  </div>
+                  <div class="wallet-meta-col">
+                    <small>Permissions</small>
+                    <strong>FL 01–04</strong>
+                  </div>
+                  <div class="wallet-meta-col">
+                    <small>Security Tier</small>
+                    <strong>EMPLOYEE</strong>
+                  </div>
+                </div>
+
+                <div class="wallet-nfc-wave-prompt">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 12h2M6 12h2M10 12h2M14 12h2M18 12h2M22 12h2"></path>
+                    <path d="M12 2v20"></path>
+                    <circle cx="12" cy="12" r="6"></circle>
+                  </svg>
+                  <span>Hold Near Reader to Unlock</span>
+                </div>
+              </div>
+
+              <!-- Real-time Door Indicator in Phone -->
+              <div style="margin-top:auto; padding: 0.85rem; background: rgba(255,255,255,0.04); border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 0.725rem; display: flex; align-items: center; justify-content: space-between;">
+                <span style="color: var(--text-dark-secondary);">HQ Lobby Turnstile 02</span>
+                <span style="color: var(--signal-granted); display: flex; align-items: center; gap: 4px;">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--signal-granted);"></span>
+                  READY
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Visual Signature Motif Bar: Digital Credential Crossing Physical Space
+         ========================================================================== -->
+    <section class="signature-bar" aria-label="Visual signature: Digital credential crossing physical space">
+      <div class="container signature-grid">
+        <div class="signature-step">
+          <div class="signature-step-num">01</div>
+          <div class="signature-step-content">
+            <strong>Digital Identity</strong>
+            <small>Okta / Entra / Workday</small>
+          </div>
+        </div>
+        <div class="signature-arrow">→</div>
+        <div class="signature-step">
+          <div class="signature-step-num">02</div>
+          <div class="signature-step-content">
+            <strong>Credential Issued</strong>
+            <small>Apple Wallet / Pass / QR</small>
+          </div>
+        </div>
+        <div class="signature-arrow">→</div>
+        <div class="signature-step">
+          <div class="signature-step-num">03</div>
+          <div class="signature-step-content">
+            <strong>Smart Reader</strong>
+            <small>Triple Unlock &lt; 300ms</small>
+          </div>
+        </div>
+        <div class="signature-arrow">→</div>
+        <div class="signature-step">
+          <div class="signature-step-num">04</div>
+          <div class="signature-step-content">
+            <strong>Door / Turnstile</strong>
+            <small>Encrypted Latch Release</small>
+          </div>
+        </div>
+        <div class="signature-arrow">→</div>
+        <div class="signature-step">
+          <div class="signature-step-num">05</div>
+          <div class="signature-step-content">
+            <strong>Physical Space</strong>
+            <small>Floors & Restricted Vaults</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 01: One credential. Every workplace.
+         ========================================================================== -->
+    <section class="section section-white" aria-labelledby="sec01Heading">
+      <div class="container">
+        <div class="story-grid-2col">
+          <div>
+            <span class="eyebrow">Chapter 01 · Credential Architecture</span>
+            <h2 id="sec01Heading" class="section-heading">
+              One credential. <br />Every workplace.
+            </h2>
+            <p class="section-subheading">
+              Replace fragile plastic badges with high-assurance digital credentials stored natively in Apple Wallet or Google Wallet. Tap your phone or Apple Watch to enter — even if your battery runs low.
+            </p>
+
+            <ul class="feature-pill-list">
+              <li class="feature-pill-item">
+                <div class="feature-pill-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Apple Wallet Express Mode</h4>
+                  <p>No need to wake or unlock your phone. Simply tap and walk through with sub-second response.</p>
+                </div>
+              </li>
+              <li class="feature-pill-item">
+                <div class="feature-pill-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="7"></circle>
+                    <polyline points="12 9 12 12 13.5 13.5"></polyline>
+                    <path d="M16.51 17.35l-.85 3.22a1 1 0 0 1-1.22.72l-4.88-1.29a1 1 0 0 1-.72-1.22l.85-3.22"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Apple Watch & Wearable Tap</h4>
+                  <p>Hands-free authentication directly from your wrist for seamless building, parking, and elevator transit.</p>
+                </div>
+              </li>
+              <li class="feature-pill-item">
+                <div class="feature-pill-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <line x1="7" y1="8" x2="17" y2="8"></line>
+                    <line x1="7" y1="12" x2="13" y2="12"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Encrypted Physical Badge Fallback</h4>
+                  <p>MIFARE DESFire EV3 encrypted cards for employees preferring traditional badges without compromising protocol security.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Visual Showcase Card -->
+          <div>
+            <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: clamp(2rem, 4vw, 3rem); box-shadow: var(--shadow-lg); color: #FFFFFF;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ice-400);">CREDENTIAL SPECIFICATION</span>
+                <span class="nav-status-pill"><span class="status-beacon-green"></span>EAL6+ CERTIFIED</span>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                  <small style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dark-muted); display:block; margin-bottom:0.25rem;">PRIMARY METHOD</small>
+                  <strong style="font-size:1.1rem; color:#FFFFFF;">Apple / Google Wallet</strong>
+                  <p style="font-size:0.8rem; color:var(--text-dark-secondary); margin-top:0.4rem;">Bluetooth LE + NFC with 5-hour power reserve reserve mode.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                  <small style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dark-muted); display:block; margin-bottom:0.25rem;">ENCRYPTION</small>
+                  <strong style="font-size:1.1rem; color:#FFFFFF;">AES-256 / RSA-4096</strong>
+                  <p style="font-size:0.8rem; color:var(--text-dark-secondary); margin-top:0.4rem;">Mutual TLS & end-to-end device cryptographic handshakes.</p>
+                </div>
+              </div>
+
+              <!-- Interactive Badge Switcher Preview -->
+              <div style="padding: 1.25rem; background: var(--bg-dark-elevated); border-radius: 12px; border: 1px solid var(--border-dark-bright); font-family: var(--font-mono); font-size: 0.8rem;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                  <span style="color:var(--text-dark-muted);">ACTIVE BADGE HOLDER</span>
+                  <span style="color:var(--signal-granted);">VERIFIED ONSITE</span>
+                </div>
+                <div style="font-size:1.1rem; font-family:var(--font-display); font-weight:700; color:#FFFFFF; margin-bottom:0.25rem;">Đỗ Anh Nghĩa</div>
+                <div style="color:var(--ice-400); font-size:0.75rem;">ID: 2026-HQ-DN09 · Floors 01, 02, 03, 04</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 02: From invitation to entry (Visitor Journey)
+         ========================================================================== -->
+    <section class="section section-light" aria-labelledby="sec02Heading">
+      <div class="container">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto 3.5rem;">
+          <span class="eyebrow">Chapter 02 · The Guest Experience</span>
+          <h2 id="sec02Heading" class="section-heading">
+            From invitation to entry. <br />
+            Security that feels welcoming.
+          </h2>
+          <p class="section-subheading" style="margin: 0 auto;">
+            Visitors shouldn’t have to wait in line, download bulky apps, or sign paper clipboards. ACCESS automates the entire guest lifecycle from the moment an invite is sent.
+          </p>
+        </div>
+
+        <div class="journey-timeline-card">
+          <div class="journey-stepper-grid">
+            <div class="journey-node">
+              <div class="journey-node-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h4>01. Host Invites</h4>
+              <p>Host books meeting in Google or Outlook; guest receives secure invitation link.</p>
+            </div>
+
+            <div class="journey-node">
+              <div class="journey-node-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h4>02. Pre-Registration</h4>
+              <p>Visitor confirms details, uploads ID verification, and signs electronic NDA.</p>
+            </div>
+
+            <div class="journey-node">
+              <div class="journey-node-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <h4>03. Pass Issued</h4>
+              <p>Temporary dynamic QR pass delivered via SMS/Email; saves to Apple Wallet.</p>
+            </div>
+
+            <div class="journey-node">
+              <div class="journey-node-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <h4>04. Touchless Check-in</h4>
+              <p>Scan at lobby turnstile or kiosk; host receives instant Slack/Teams notification.</p>
+            </div>
+
+            <div class="journey-node">
+              <div class="journey-node-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h4>05. Auto-Expiry</h4>
+              <p>Pass permissions automatically revoke upon meeting conclusion or exit.</p>
+            </div>
+          </div>
+
+          <!-- Real Visitor Pass Example Card -->
+          <div style="margin-top: 3.5rem; display: flex; justify-content: center;">
+            <div class="visitor-badge-card" style="width:100%; max-width: 480px;">
+              <div class="badge-top-row">
+                <span class="badge-type-pill">GUEST PASS · VISITOR</span>
+                <span class="badge-expiry-countdown">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 14 10"></polyline>
+                  </svg>
+                  VALID 10:00 – 12:00
+                </span>
+              </div>
+
+              <div class="visitor-name-title">Marcus Chen</div>
+              <div class="visitor-org-line">Design Director · Figma APAC</div>
+
+              <div class="badge-qr-container">
+                <!-- Clean vector SVG QR code representation -->
+                <svg class="badge-qr-code" viewBox="0 0 100 100" fill="#0B0D11">
+                  <rect x="0" y="0" width="30" height="30" fill="#0B0D11" rx="4"></rect>
+                  <rect x="5" y="5" width="20" height="20" fill="#FFFFFF"></rect>
+                  <rect x="10" y="10" width="10" height="10" fill="#0B0D11"></rect>
+
+                  <rect x="70" y="0" width="30" height="30" fill="#0B0D11" rx="4"></rect>
+                  <rect x="75" y="5" width="20" height="20" fill="#FFFFFF"></rect>
+                  <rect x="80" y="10" width="10" height="10" fill="#0B0D11"></rect>
+
+                  <rect x="0" y="70" width="30" height="30" fill="#0B0D11" rx="4"></rect>
+                  <rect x="5" y="75" width="20" height="20" fill="#FFFFFF"></rect>
+                  <rect x="10" y="80" width="10" height="10" fill="#0B0D11"></rect>
+
+                  <!-- Dynamic matrix data blocks -->
+                  <rect x="38" y="12" width="6" height="6"></rect>
+                  <rect x="50" y="8" width="8" height="6"></rect>
+                  <rect x="42" y="24" width="6" height="8"></rect>
+                  <rect x="54" y="20" width="8" height="6"></rect>
+                  <rect x="12" y="42" width="6" height="8"></rect>
+                  <rect x="22" y="50" width="8" height="6"></rect>
+                  <rect x="36" y="38" width="10" height="10"></rect>
+                  <rect x="52" y="40" width="8" height="8"></rect>
+                  <rect x="68" y="42" width="6" height="6"></rect>
+                  <rect x="82" y="38" width="8" height="8"></rect>
+                  <rect x="74" y="54" width="12" height="6"></rect>
+                  <rect x="40" y="60" width="8" height="10"></rect>
+                  <rect x="54" y="58" width="10" height="6"></rect>
+                  <rect x="42" y="78" width="8" height="8"></rect>
+                  <rect x="58" y="72" width="6" height="12"></rect>
+                  <rect x="70" y="76" width="10" height="6"></rect>
+                  <rect x="84" y="72" width="8" height="10"></rect>
+                </svg>
+              </div>
+
+              <div class="badge-host-info">
+                <div class="badge-host-avatar">ĐN</div>
+                <div>
+                  <strong>Host: Đỗ Anh Nghĩa</strong> (Product Designer)
+                  <div style="font-size:0.775rem; color:var(--text-light-muted);">Approved Area: Floor 03 · Design Studio & Boardroom</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 03: Security follows identity (System Diagram)
+         ========================================================================== -->
+    <section class="section section-dark" aria-labelledby="sec03Heading">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 3.5rem;">
+          <span class="eyebrow eyebrow-dark">Chapter 03 · Unified Directory Sync</span>
+          <h2 id="sec03Heading" class="section-heading">
+            Security follows identity.
+          </h2>
+          <p class="section-subheading">
+            When employee roles, departments, or contracts change in your identity provider, ACCESS updates their physical permissions across every door in real-time. Zero orphan badges.
+          </p>
+        </div>
+
+        <div class="system-diagram-card">
+          <div class="diagram-flow-track">
+            <!-- Node 1: IdP / HRIS -->
+            <div class="diagram-node">
+              <div class="diagram-node-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h4>Identity Provider</h4>
+              <p>Okta · Microsoft Entra · Google Workspace · Workday</p>
+            </div>
+
+            <div class="diagram-connector">
+              <span>SCIM v2.0</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+
+            <!-- Node 2: ACCESS Cloud Engine -->
+            <div class="diagram-node" style="border-color: var(--cobalt-500); background: rgba(37, 99, 235, 0.08);">
+              <div class="diagram-node-icon" style="background: var(--cobalt-500); color: #FFF;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h4>ACCESS Cloud Platform</h4>
+              <p>Role-Based Rules · Policy Engine · Multi-Site Sync</p>
+            </div>
+
+            <div class="diagram-connector">
+              <span>Encrypted Mesh</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+
+            <!-- Node 3: Physical Environment & Readers -->
+            <div class="diagram-node">
+              <div class="diagram-node-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <h4>Physical Workplaces</h4>
+              <p>Turnstiles · Elevators · Executive Suites · Server Vaults</p>
+            </div>
+          </div>
+
+          <!-- Clean integration logo pills -->
+          <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.775rem; color: var(--text-dark-muted);">ENTERPRISE CONNECTORS:</span>
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Okta Verified</span>
+              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Microsoft Entra ID</span>
+              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Google Cloud Identity</span>
+              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Workday SCIM</span>
+              <span class="trust-badge-item" style="padding:0.4rem 0.85rem; font-size:0.775rem;">Slack Notifications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 04: Access adapts to every space (Spatial Matrix)
+         ========================================================================== -->
+    <section class="section section-dark" style="background-color: #06080B;" aria-labelledby="sec04Heading">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 3rem;">
+          <span class="eyebrow eyebrow-dark">Chapter 04 · Spatial Intelligence</span>
+          <h2 id="sec04Heading" class="section-heading">
+            Access adapts to every space.
+          </h2>
+          <p class="section-subheading">
+            From open public lobbies to restricted R&D cleanrooms and mission-critical server vaults, define precise multi-layer permission envelopes across your entire physical portfolio.
+          </p>
+        </div>
+
+        <div class="zone-matrix-grid">
+          <!-- Zone 1: Main Lobby & Turnstiles -->
+          <article class="zone-card">
+            <div class="zone-card-media">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop&q=80" alt="Main office entrance and architectural turnstiles" loading="lazy" />
+              <span class="zone-badge-level">TIER 1 · PUBLIC TRANSIT</span>
+            </div>
+            <div class="zone-card-body">
+              <h3>HQ Grand Lobby & Turnstiles</h3>
+              <p>High-throughput optical speed gates with sub-second mobile NFC intent unlock. Handles 1,200+ employees and guests per hour.</p>
+              <div class="zone-permissions-row">
+                <span style="color:var(--text-dark-muted);">ACCESS POLICY</span>
+                <span class="permission-pill public">Employees & Visitors</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Zone 2: Executive Floor & Boardrooms -->
+          <article class="zone-card">
+            <div class="zone-card-media">
+              <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&auto=format&fit=crop&q=80" alt="Executive modern boardroom and conference floor" loading="lazy" />
+              <span class="zone-badge-level">TIER 2 · CONTROLLED</span>
+            </div>
+            <div class="zone-card-body">
+              <h3>Executive Floor 04</h3>
+              <p>Cardholder schedule rules, timed meeting grants, and host-escorted visitor access for leadership suites and boardrooms.</p>
+              <div class="zone-permissions-row">
+                <span style="color:var(--text-dark-muted);">ACCESS POLICY</span>
+                <span class="permission-pill medium">Scheduled / Leadership</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Zone 3: Data Center / Server Room 4B -->
+          <article class="zone-card">
+            <div class="zone-card-media">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80" alt="Secure data center server corridor" loading="lazy" />
+              <span class="zone-badge-level">TIER 3 · RESTRICTED</span>
+            </div>
+            <div class="zone-card-body">
+              <h3>Server Room 4B & R&D Lab</h3>
+              <p>Multi-factor mobile + PIN door reader, dual-custody authorization, and automatic video audit clip synchronization upon entry.</p>
+              <div class="zone-permissions-row">
+                <span style="color:var(--text-dark-muted);">ACCESS POLICY</span>
+                <span class="permission-pill high">MFA / Certified Engineers</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SIGNATURE INTERACTIVE SANDBOX: Live Hardware Reader & Credential Simulator
+         ========================================================================== -->
+    <section class="section section-dark" id="interactive-sandbox" aria-labelledby="sandboxHeading">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+          <span class="eyebrow eyebrow-dark">Live Interactive Experience</span>
+          <h2 id="sandboxHeading" class="section-heading">
+            Experience the physical-digital handshake.
+          </h2>
+          <p class="section-subheading" style="margin: 0 auto;">
+            Switch between real employee credentials, temporary visitor passes, and security scenarios. Trigger unlocks and observe how the ACCESS Smart Reader evaluates permissions in sub-seconds.
+          </p>
+        </div>
+
+        <div class="reader-sim-container">
+          <div class="reader-sim-header">
+            <div class="reader-sim-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ice-400)" stroke-width="2.5">
+                <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+              </svg>
+              <span>ACCESS SMART READER SIMULATOR · HARDWARE TESTBED</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <button id="btnSoundToggle" class="btn btn-secondary-dark btn-sm" aria-label="Toggle synthetic sound effects">Sound: ON</button>
+              <div class="reader-sim-status-badge">
+                <span class="status-beacon-green"></span>
+                <span>MESH CONTROLLER ONLINE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reader-sim-layout">
+            <!-- Left Column: Physical Reader Hardware Render & Door Strike Display -->
+            <div class="hardware-stage">
+              <div class="door-jamb-backdrop"></div>
+
+              <!-- Physical Mullion Smart Reader Unit -->
+              <div class="mullion-reader state-idle" id="smartReaderUnit" aria-live="polite" aria-label="Smart reader hardware status">
+                <div class="reader-sensor-dot" title="Optical sensor"></div>
+
+                <div class="reader-led-ring-wrapper">
+                  <div class="reader-led-light"></div>
+                </div>
+
+                <div class="reader-rfid-zone">
+                  <svg class="reader-nfc-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 18a6 6 0 0 1 0-12"></path>
+                    <path d="M10 16a3 3 0 0 1 0-8"></path>
+                    <line x1="14" y1="12" x2="14.01" y2="12"></line>
+                  </svg>
+                  <span class="reader-brand-label">ACCESS</span>
+                </div>
+              </div>
+
+              <!-- Live Magnetic Latch / Door Strike Monitor -->
+              <div class="door-strike-display" id="doorStrikeDisplay">
+                <div class="door-strike-indicator locked" id="doorStrikeDot"></div>
+                <span id="doorStrikeStatus">SECURED & ARMED</span>
+              </div>
+            </div>
+
+            <!-- Right Column: Interactive Persona Switcher & Triggers -->
+            <div class="sim-controls-panel">
+              <!-- Persona Selection Tabs -->
+              <div>
+                <small style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dark-muted); display:block; margin-bottom:0.5rem;">SELECT ACTIVE CREDENTIAL:</small>
+                <div class="persona-selector-tabs" role="tablist">
+                  <button class="persona-tab-btn active" data-persona="nghia" role="tab" aria-selected="true">
+                    <span>Đỗ Anh Nghĩa (Staff)</span>
+                  </button>
+                  <button class="persona-tab-btn" data-persona="marcus" role="tab" aria-selected="false">
+                    <span>Marcus Chen (Visitor)</span>
+                  </button>
+                  <button class="persona-tab-btn" data-persona="sarah" role="tab" aria-selected="false">
+                    <span>Sarah Jenkins (Contractor)</span>
+                  </button>
+                  <button class="persona-tab-btn" data-persona="alex" role="tab" aria-selected="false">
+                    <span>Alex Rivera (Revoked)</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Active Credential Readout Card -->
+              <div class="credential-display-card">
+                <div class="credential-header">
+                  <span class="credential-chip" id="credChipType">FULL-TIME EMPLOYEE</span>
+                  <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dark-muted);" id="credDetailToken">0x7F9A..C4E1</span>
+                </div>
+                <div class="credential-user-name" id="credUserName">Đỗ Anh Nghĩa</div>
+                <div class="credential-user-role" id="credUserRole">Product Designer · ACCESS HQ — Ho Chi Minh City</div>
+
+                <dl class="credential-details-grid">
+                  <div>
+                    <dt>Permissions</dt>
+                    <dd id="credDetailFloor">Floors 01–04 (All Workspaces)</dd>
+                  </div>
+                  <div>
+                    <dt>Schedule</dt>
+                    <dd id="credDetailSchedule">Mon–Fri · 08:00–20:00</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <!-- Action Triggers -->
+              <div class="sim-action-triggers">
+                <button class="sim-btn-trigger" id="btnTriggerTap">
+                  <span>Simulate NFC / Apple Wallet Tap</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="sim-btn-trigger" id="btnTriggerWave">
+                  <span>Simulate Bluetooth Wave Intent</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+                </button>
+                <button class="sim-btn-trigger" id="btnTriggerRemote">
+                  <span>Security Admin Cloud Unlock</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                </button>
+                <button class="sim-btn-trigger sim-btn-lockdown" id="btnTriggerLockdown">
+                  <span>Simulate Site Lockdown</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </button>
+              </div>
+
+              <!-- Live Event Log -->
+              <div class="sim-event-terminal" id="simTerminalLog" aria-live="polite" aria-label="Real-time access logs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 05: Built for moments that matter (Scenario Switcher)
+         ========================================================================== -->
+    <section class="section section-light" aria-labelledby="sec05Heading">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 2.5rem;">
+          <span class="eyebrow">Chapter 05 · Operational Resilience</span>
+          <h2 id="sec05Heading" class="section-heading">
+            Built for moments that matter.
+          </h2>
+          <p class="section-subheading">
+            Workplace security isn’t tested during standard routines — it’s proven when plans change unexpectedly. Explore how ACCESS handles edge scenarios automatically.
+          </p>
+        </div>
+
+        <!-- Scenario Navigation Tabs -->
+        <div class="scenario-tabs-nav" role="tablist">
+          <button class="scenario-tab active" data-scenario-tab="new-hire" role="tab">New Employee First Day</button>
+          <button class="scenario-tab" data-scenario-tab="vip-client" role="tab">Visiting Client</button>
+          <button class="scenario-tab" data-scenario-tab="contractor" role="tab">2-Hour Contractor</button>
+          <button class="scenario-tab" data-scenario-tab="lost-device" role="tab">Lost Phone Revoke</button>
+          <button class="scenario-tab" data-scenario-tab="offboarding" role="tab">Offboarding Departure</button>
+          <button class="scenario-tab" data-scenario-tab="lockdown" role="tab">Emergency Lockdown</button>
+        </div>
+
+        <!-- Scenario Panels -->
+        <div class="scenario-panels-wrapper">
+          <!-- Panel 1: New Employee -->
+          <div class="scenario-content-panel active" data-scenario-panel="new-hire" style="display:grid;">
+            <div>
+              <span class="eyebrow">AUTOMATED ONBOARDING</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem;">Day one access ready before they step out of the car.</h3>
+              <p style="color:var(--text-light-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                When an employee is created in Workday or Okta, ACCESS provisions an encrypted Apple Wallet credential straight to their welcome email. They tap through the front lobby speed gates on day one without waiting for HR or reception.
+              </p>
+              <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cobalt-600); display:flex; align-items:center; gap:0.5rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Eliminates 15+ minutes of reception badge creation per new hire.
+              </div>
+            </div>
+            <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
+              <h4 style="font-size:1.05rem; margin-bottom:1rem;">HRIS Provisioning Flow:</h4>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li>✓ 08:00 — Workday hire status toggled to Active</li>
+                <li>✓ 08:01 — SCIM pushes employee profile to ACCESS</li>
+                <li>✓ 08:01 — Apple Wallet pass link emailed & sent via SMS</li>
+                <li>✓ 08:45 — Employee taps phone at entrance: ACCESS GRANTED</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel 2: Visiting Client -->
+          <div class="scenario-content-panel" data-scenario-panel="vip-client" style="display:none;">
+            <div>
+              <span class="eyebrow">PREMIUM VISITOR FLOW</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem;">A welcoming arrival without security compromises.</h3>
+              <p style="color:var(--text-light-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                Client visits are pre-cleared with electronic NDA completion. When Marcus Chen arrives, scanning his pass automatically alerts host Đỗ Anh Nghĩa on Slack, calls the designated elevator, and grants access strictly to Floor 03.
+              </p>
+              <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cobalt-600); display:flex; align-items:center; gap:0.5rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Instant host ping &amp; zero lobby paperwork.
+              </div>
+            </div>
+            <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
+              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Guest Arrival Flow:</h4>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li>✓ 09:55 — Guest scans QR pass at Lobby Turnstile</li>
+                <li>✓ 09:55 — Slack Bot: "Marcus Chen (Figma) has arrived at Lobby"</li>
+                <li>✓ 09:56 — Turnstile unlatches; elevator preset to Floor 03</li>
+                <li>✓ 12:00 — Scheduled meeting ends: Pass deactivates automatically</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel 3: Contractor -->
+          <div class="scenario-content-panel" data-scenario-panel="contractor" style="display:none;">
+            <div>
+              <span class="eyebrow">TIME-BOUNDED PERMISSION</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem;">Strict zone boundaries that expire to the second.</h3>
+              <p style="color:var(--text-light-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                Contractors and facility technicians receive passes strictly authorized for their specific work order (e.g. Server Room 4B) and active only during scheduled hours (13:00–15:00). Attempted entry anywhere else is immediately flagged.
+              </p>
+            </div>
+            <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
+              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Contractor Enclosure:</h4>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li>✓ Authorized: Server Room 4B (13:00–15:00)</li>
+                <li>✕ Blocked: Executive Floor 04 (Access Denied logged)</li>
+                <li>✓ 15:00:01: Pass automatically revoked across all controllers</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel 4: Lost Phone -->
+          <div class="scenario-content-panel" data-scenario-panel="lost-device" style="display:none;">
+            <div>
+              <span class="eyebrow">INSTANT ZERO-TRUST REVOCATION</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem;">Revoke in 1 second without rekeying hardware.</h3>
+              <p style="color:var(--text-light-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                Employee misplaced their phone? IT or the employee can trigger instant remote kill via mobile portal or MDM. The cryptographic certificate is immediately invalidated across all local reader mesh nodes in &lt; 500ms.
+              </p>
+            </div>
+            <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
+              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Revocation Benchmark:</h4>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li>✓ Device revocation command broadcast via cloud mesh</li>
+                <li>✓ 48 smart readers updated in 0.42 seconds</li>
+                <li>✓ Replacement temporary pass issued to backup device</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel 5: Offboarding -->
+          <div class="scenario-content-panel" data-scenario-panel="offboarding" style="display:none;">
+            <div>
+              <span class="eyebrow">DE-PROVISIONING SECURITY</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem;">Physical access revoked the exact minute digital access ends.</h3>
+              <p style="color:var(--text-light-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                Traditional physical security suffers from forgotten plastic keycards. ACCESS binds physical credentials to Okta/Workday SSO status: when an account is disabled in Okta, all physical building doors seal instantly.
+              </p>
+            </div>
+            <div style="background: #F1F4F9; border-radius:16px; padding:2rem; border:1px solid var(--border-light);">
+              <h4 style="font-size:1.05rem; margin-bottom:1rem;">Audit Trail Guarantee:</h4>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:var(--text-light-secondary);">
+                <li>✓ Zero orphan badges circulating in the field</li>
+                <li>✓ Comprehensive SOC 2 audit log generated automatically</li>
+                <li>✓ Security operations dashboard confirms zero residual access</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel 6: Emergency Lockdown -->
+          <div class="scenario-content-panel" data-scenario-panel="lockdown" style="display:none;">
+            <div>
+              <span class="eyebrow" style="color:var(--signal-denied);">CRITICAL INCIDENT PROTOCOL</span>
+              <h3 style="font-size:1.75rem; margin-bottom:1rem;">One-click site lockdown across all locations.</h3>
+              <p style="color:var(--text-light-secondary); line-height:1.65; margin-bottom:1.5rem;">
+                In the event of an active threat or environmental emergency, authorized administrators can trigger site-wide lockdown from their phone or browser. All perimeter turnstiles and doors secure immediately while preserving free egress per life safety codes.
+              </p>
+            </div>
+            <div style="background: #FFF1F2; border-radius:16px; padding:2rem; border:1px solid #FECDD3;">
+              <h4 style="font-size:1.05rem; margin-bottom:1rem; color:#9F1239;">Life Safety Compliance:</h4>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.875rem; color:#881337;">
+                <li>✓ Exterior doors locked to all incoming credentials</li>
+                <li>✓ Emergency push-bar egress remains 100% compliant</li>
+                <li>✓ Local first responder master tokens remain operational</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 06: One platform across every site (Global Architecture)
+         ========================================================================== -->
+    <section class="section section-dark" aria-labelledby="sec06Heading">
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom: 3rem;">
+          <div>
+            <span class="eyebrow eyebrow-dark">Chapter 06 · Multi-Site Governance</span>
+            <h2 id="sec06Heading" class="section-heading">
+              One platform across every site.
+            </h2>
+            <p class="section-subheading">
+              Manage thousands of doors, multiple headquarters, and global regional hubs from a single cloud console. Seamless roaming for international employees.
+            </p>
+          </div>
+          <div class="nav-status-pill">
+            <span class="status-beacon-green"></span>
+            <span>ALL HUBS OPERATIONAL</span>
+          </div>
+        </div>
+
+        <div class="site-locations-strip">
+          <div class="site-location-card">
+            <div class="site-city-head">
+              <h4>Ho Chi Minh City</h4>
+              <span class="site-status-dot"></span>
+            </div>
+            <div class="site-location-meta">
+              <span>ACCESS HQ Campus</span>
+              <span>Time: <strong data-timezone="Asia/Ho_Chi_Minh">--:--</strong></span>
+              <span>Doors: 48 · Online</span>
+            </div>
+          </div>
+
+          <div class="site-location-card">
+            <div class="site-city-head">
+              <h4>Singapore</h4>
+              <span class="site-status-dot"></span>
+            </div>
+            <div class="site-location-meta">
+              <span>Marina One Hub</span>
+              <span>Time: <strong data-timezone="Asia/Singapore">--:--</strong></span>
+              <span>Doors: 32 · Online</span>
+            </div>
+          </div>
+
+          <div class="site-location-card">
+            <div class="site-city-head">
+              <h4>London</h4>
+              <span class="site-status-dot"></span>
+            </div>
+            <div class="site-location-meta">
+              <span>Bishopsgate Tower</span>
+              <span>Time: <strong data-timezone="Europe/London">--:--</strong></span>
+              <span>Doors: 24 · Online</span>
+            </div>
+          </div>
+
+          <div class="site-location-card">
+            <div class="site-city-head">
+              <h4>New York</h4>
+              <span class="site-status-dot"></span>
+            </div>
+            <div class="site-location-meta">
+              <span>Manhattan West</span>
+              <span>Time: <strong data-timezone="America/New_York">--:--</strong></span>
+              <span>Doors: 56 · Online</span>
+            </div>
+          </div>
+
+          <div class="site-location-card">
+            <div class="site-city-head">
+              <h4>Tokyo</h4>
+              <span class="site-status-dot"></span>
+            </div>
+            <div class="site-location-meta">
+              <span>Roppongi Hills</span>
+              <span>Time: <strong data-timezone="Asia/Tokyo">--:--</strong></span>
+              <span>Doors: 18 · Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Enterprise Standards & Compliance Strip
+         ========================================================================== -->
+    <section class="section section-dark" style="background-color: #080A0E; padding: 3rem 0; border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark);">
+      <div class="container">
+        <div class="trust-badges-grid">
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>SOC 2 TYPE II CERTIFIED</span>
+          </div>
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>ISO 27001 &amp; 27701</span>
+          </div>
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span>99.99% CLOUD SLA</span>
+          </div>
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>GDPR &amp; CCPA COMPLIANT</span>
+          </div>
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>EAL6+ SECURE HARDWARE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Conversion CTA Banner
+         ========================================================================== -->
+    <section class="section section-white" style="text-align: center;">
+      <div class="container-narrow">
+        <span class="eyebrow">Deploy Modern Physical Security</span>
+        <h2 class="section-heading" style="margin-bottom: 1rem;">
+          Ready to remove friction <br />from your workplace?
+        </h2>
+        <p class="section-subheading" style="margin: 0 auto 2.5rem;">
+          See how leading enterprise workplaces replace plastic badges with mobile credentials, automated visitor check-ins, and cloud-governed physical access.
+        </p>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>
+            Book My ACCESS Demo
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="access-control.html" class="btn btn-secondary-light btn-lg">Explore Hardware Specifications</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       Global Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-summary">
+          <div class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="brand-mark-cube" style="width:24px;height:24px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;">
+                <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <span>ACCESS</span>
+          </div>
+          <p>
+            The cloud physical access and visitor security platform designed for modern workplaces. Access without friction. Security without compromise.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <ul class="footer-links">
+            <li><a href="access-control.html">Access Control</a></li>
+            <li><a href="mobile-access.html">Mobile Credentials</a></li>
+            <li><a href="visitor-management.html">Visitor Security</a></li>
+            <li><a href="enterprise.html">Enterprise Security</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Solutions</h5>
+          <ul class="footer-links">
+            <li><a href="enterprise.html">Global Enterprises</a></li>
+            <li><a href="enterprise.html#commercial-real-estate">Commercial Real Estate</a></li>
+            <li><a href="enterprise.html#technology">Technology Campuses</a></li>
+            <li><a href="demo.html">Request Pilot Program</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Security & Trust</h5>
+          <ul class="footer-links">
+            <li><a href="enterprise.html#compliance">SOC 2 Type II</a></li>
+            <li><a href="enterprise.html#compliance">ISO 27001 Security</a></li>
+            <li><a href="enterprise.html#compliance">GDPR Privacy</a></li>
+            <li><a href="demo.html" data-open-demo-modal>Security Whitepaper</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 ACCESS Technologies Inc. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Security Disclosure</span>
+          <span>System Status</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Enterprise Demo Booking Modal Dialog
+       ========================================================================== -->
+  <div class="demo-modal-overlay" id="demoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="demo-modal-window">
+      <button class="demo-modal-close-btn" data-close-demo-modal aria-label="Close demo booking modal">✕</button>
+
+      <div id="demoFormContainer">
+        <span class="eyebrow eyebrow-dark">Enterprise Pilot Consultation</span>
+        <h3 id="modalTitle" style="font-size:1.75rem; margin-bottom:0.5rem; color:#FFFFFF;">Book your ACCESS demonstration</h3>
+        <p style="color:var(--text-dark-secondary); font-size:0.925rem; line-height:1.55;">
+          Speak with an enterprise physical security architect. We'll review your building floorplans, existing reader infrastructure, and identity sync requirements.
+        </p>
+
+        <form id="demoForm" class="form-group-grid">
+          <div class="form-field">
+            <label for="workEmail">Work Email *</label>
+            <input type="email" id="workEmail" class="form-input" placeholder="alex@company.com" required />
+          </div>
+
+          <div class="form-field">
+            <label for="companyName">Company Name *</label>
+            <input type="text" id="companyName" class="form-input" placeholder="Northstar Labs" required />
+          </div>
+
+          <div class="form-field">
+            <label for="companySize">Workplace Size</label>
+            <select id="companySize" class="form-select">
+              <option value="100-500">100 – 500 Employees</option>
+              <option value="500-2000">500 – 2,000 Employees</option>
+              <option value="2000+">2,000+ Enterprise Staff</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="siteCount">Number of Office Locations</label>
+            <select id="siteCount" class="form-select">
+              <option value="1-2">1 – 2 Headquarters</option>
+              <option value="3-10">3 – 10 Global Sites</option>
+              <option value="10+">10+ Multi-Site Portfolio</option>
+            </select>
+          </div>
+
+          <div class="form-field col-span-2">
+            <label for="primaryNeed">Primary Physical Security Objective</label>
+            <select id="primaryNeed" class="form-select">
+              <option value="mobile-credentials">Transitioning to Apple Wallet &amp; Mobile Badges</option>
+              <option value="visitor-automation">Automating Guest Check-in &amp; Kiosks</option>
+              <option value="multi-site-unification">Unifying Disconnected Regional Facilities</option>
+              <option value="idp-scim-sync">Automating Onboarding/Offboarding via Okta / Entra</option>
+            </select>
+          </div>
+
+          <div class="form-field col-span-2" style="margin-top:0.5rem;">
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+              Book My ACCESS Demo
+            </button>
+            <small style="text-align:center; display:block; margin-top:0.5rem; color:var(--text-dark-muted); font-size:0.75rem;">
+              No commitment required · Confidential NDA protected · Response within 2 business hours
+            </small>
+          </div>
+        </form>
+
+        <div id="demoSuccessView" style="display:none; text-align:center; padding: 2rem 1rem;">
+          <div style="width:56px; height:56px; border-radius:50%; background:rgba(16,185,129,0.15); border:2px solid var(--signal-granted); color:var(--signal-granted); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h4 style="font-size:1.5rem; color:#FFFFFF; margin-bottom:0.5rem;">Demonstration Reserved</h4>
+          <p style="color:var(--text-dark-secondary); max-width:440px; margin:0 auto 1.5rem; font-size:0.925rem;">
+            Thank you. An ACCESS enterprise solutions engineer has been assigned to your workspace profile. Check your inbox for calendar invites and floorplan pre-briefing details.
+          </p>
+          <button class="btn btn-secondary-dark btn-sm" data-close-demo-modal>Return to Overview</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/reader-simulator.js"></script>
 </body>
-</html> 
+</html>

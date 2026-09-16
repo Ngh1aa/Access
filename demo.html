@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Demo — ACCESS Cloud Physical Security</title>
+  <meta name="description" content="Schedule a personalized enterprise demonstration of ACCESS. See how to replace plastic badges with Apple Wallet passes, automate guest check-in, and govern physical doors globally." />
+  <meta name="theme-color" content="#090B0E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body style="background-color: var(--bg-dark); color: var(--text-dark-primary);">
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ACCESS Home">
+        <div class="brand-mark-cube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span>ACCESS</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="access-control.html" class="nav-link">Access Control</a></li>
+          <li><a href="mobile-access.html" class="nav-link">Mobile Access</a></li>
+          <li><a href="visitor-management.html" class="nav-link">Visitor Security</a></li>
+          <li><a href="enterprise.html" class="nav-link">Enterprise</a></li>
+          <li><a href="integrations.html" class="nav-link">Integrations</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary-dark btn-sm">← Back to Overview</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent" style="padding-top: calc(76px + 3.5rem); padding-bottom: 5rem;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 4.5rem); align-items:flex-start;">
+
+        <!-- Left Column: High-Conversion Form -->
+        <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark-bright); border-radius: var(--radius-xl); padding: clamp(2rem, 4vw, 3rem); box-shadow: var(--shadow-dark-card);">
+          <span class="eyebrow eyebrow-dark">Enterprise Demonstration</span>
+          <h1 style="font-size: clamp(2rem, 3.5vw, 2.75rem); color:#FFF; margin-bottom: 0.75rem;">
+            See ACCESS in action.
+          </h1>
+          <p style="color:var(--text-dark-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
+            Join a 30-minute tailored walkthrough with a physical security solutions architect. We’ll discuss your current door hardware, identity provider architecture, and rollout timeline.
+          </p>
+
+          <form id="standaloneDemoForm" class="form-group-grid" style="margin-top:0;">
+            <div class="form-field">
+              <label for="pageWorkEmail">Work Email *</label>
+              <input type="email" id="pageWorkEmail" class="form-input" placeholder="alex@company.com" required />
+            </div>
+
+            <div class="form-field">
+              <label for="pageCompanyName">Company Name *</label>
+              <input type="text" id="pageCompanyName" class="form-input" placeholder="Northstar Labs" required />
+            </div>
+
+            <div class="form-field">
+              <label for="pageCompanySize">Workplace Size</label>
+              <select id="pageCompanySize" class="form-select">
+                <option value="100-500">100 – 500 Employees</option>
+                <option value="500-2000" selected>500 – 2,000 Employees</option>
+                <option value="2000+">2,000+ Enterprise Staff</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="pageSiteCount">Office Locations</label>
+              <select id="pageSiteCount" class="form-select">
+                <option value="1-2">1 – 2 Headquarters</option>
+                <option value="3-10" selected>3 – 10 Global Sites</option>
+                <option value="10+">10+ Multi-Site Portfolio</option>
+              </select>
+            </div>
+
+            <div class="form-field col-span-2">
+              <label for="pagePrimaryNeed">Primary Physical Access Need</label>
+              <select id="pagePrimaryNeed" class="form-select">
+                <option value="mobile-wallet">Transitioning to Apple Wallet &amp; Mobile Keycards</option>
+                <option value="visitor-kiosk">Automating Visitor Registration &amp; Touchless Check-In</option>
+                <option value="multi-site">Unifying Disconnected Regional Facilities &amp; Readers</option>
+                <option value="idp-scim">Automating SCIM Onboarding/Offboarding with Okta / Entra</option>
+              </select>
+            </div>
+
+            <div class="form-field col-span-2" style="margin-top: 1rem;">
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%; font-size:1.1rem;">
+                Book My ACCESS Demo
+              </button>
+              <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:1rem; font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dark-muted);">
+                <span>✓ Confidential &amp; NDA Protected</span>
+                <span>✓ 2-Hour Response SLA</span>
+                <span>✓ Zero Obligation</span>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div id="pageSuccessView" style="display:none; text-align:center; padding: 3rem 1.5rem;">
+            <div style="width:64px; height:64px; border-radius:50%; background:rgba(16,185,129,0.15); border:2px solid var(--signal-granted); color:var(--signal-granted); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 style="font-size:1.85rem; color:#FFF; margin-bottom:0.75rem;">Demonstration Reserved</h3>
+            <p style="color:var(--text-dark-secondary); max-width:440px; margin:0 auto 2rem; line-height:1.6;">
+              An ACCESS senior solutions engineer has been reserved for your team. You will receive a calendar invite and custom architecture pre-brief within 2 business hours.
+            </p>
+            <a href="index.html" class="btn btn-secondary-dark">Return to Platform Overview</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Product Presentation & What to Expect -->
+        <div>
+          <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 2rem;">
+            <h3 style="font-size:1.35rem; color:#FFF; margin-bottom: 1.5rem;">What happens during your demo:</h3>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:1.25rem; color:var(--text-dark-secondary); font-size:0.925rem;">
+              <li style="display:flex; gap:1rem;">
+                <div class="feature-pill-icon" style="flex-shrink:0;">01</div>
+                <div>
+                  <strong style="color:#FFF; display:block; margin-bottom:0.2rem;">Floorplan &amp; Hardware Audit</strong>
+                  <span>We evaluate your existing turnstiles, locks, and door wiring to determine retrofit options without replacing existing infrastructure.</span>
+                </div>
+              </li>
+              <li style="display:flex; gap:1rem;">
+                <div class="feature-pill-icon" style="flex-shrink:0;">02</div>
+                <div>
+                  <strong style="color:#FFF; display:block; margin-bottom:0.2rem;">Live Apple Wallet Simulation</strong>
+                  <span>See how credentials are generated and provisioned directly into Apple Wallet and Google Wallet via automated SCIM links.</span>
+                </div>
+              </li>
+              <li style="display:flex; gap:1rem;">
+                <div class="feature-pill-icon" style="flex-shrink:0;">03</div>
+                <div>
+                  <strong style="color:#FFF; display:block; margin-bottom:0.2rem;">Deployment Timeline &amp; ROI</strong>
+                  <span>Receive a custom deployment estimate and hardware evaluation kit for your facilities security team.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Enterprise Certifications Box -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 1.75rem;">
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ice-400); margin-bottom:0.75rem;">TRUSTED BY MODERN WORKPLACES</div>
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+              <span class="trust-badge-item" style="font-size:0.75rem;">SOC 2 Type II</span>
+              <span class="trust-badge-item" style="font-size:0.75rem;">ISO 27001</span>
+              <span class="trust-badge-item" style="font-size:0.75rem;">GDPR Ready</span>
+              <span class="trust-badge-item" style="font-size:0.75rem;">99.99% Cloud SLA</span>
+              <span class="trust-badge-item" style="font-size:0.75rem;">EAL6+ Secure Chip</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border:none; padding:0;">
+        <div>&copy; 2026 ACCESS Technologies Inc. · Cloud Physical Access &amp; Visitor Security Platform</div>
+        <div><a href="index.html" style="color:var(--ice-400);">Return to Overview →</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const form = document.getElementById('standaloneDemoForm');
+    const success = document.getElementById('pageSuccessView');
+    if (form && success) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Reserving Demo Slot...';
+        setTimeout(() => {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }, 600);
+      });
+    }
+  </script>
+</body>
+</html>

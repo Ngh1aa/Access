@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise Visitor Security &amp; Guest Experience — ACCESS</title>
+  <meta name="description" content="A secure arrival should still feel welcoming. Automated pre-registration, electronic NDA signing, dynamic QR credentials, and instant host Slack/Teams notifications." />
+  <meta name="theme-color" content="#090B0E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ACCESS Home">
+        <div class="brand-mark-cube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span>ACCESS</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="access-control.html" class="nav-link">Access Control</a></li>
+          <li><a href="mobile-access.html" class="nav-link">Mobile Access</a></li>
+          <li><a href="visitor-management.html" class="nav-link active">Visitor Security</a></li>
+          <li><a href="enterprise.html" class="nav-link">Enterprise</a></li>
+          <li><a href="integrations.html" class="nav-link">Integrations</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="demo.html" class="btn btn-primary btn-sm" data-open-demo-modal>Book a Demo</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Platform Overview <span>→</span></a></li>
+      <li><a href="access-control.html" class="mobile-nav-link">Cloud Access Control <span>→</span></a></li>
+      <li><a href="mobile-access.html" class="mobile-nav-link">Mobile &amp; Wallet Passes <span>→</span></a></li>
+      <li><a href="visitor-management.html" class="mobile-nav-link active">Visitor Management <span>→</span></a></li>
+      <li><a href="enterprise.html" class="mobile-nav-link">Enterprise &amp; Multi-Site <span>→</span></a></li>
+      <li><a href="integrations.html" class="mobile-nav-link">Integrations <span>→</span></a></li>
+      <li><a href="demo.html" class="mobile-nav-link" data-open-demo-modal>Book a Demo <span>↗</span></a></li>
+    </ul>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-wrapper" style="min-height: 85svh;">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy-block">
+          <div class="hero-tag-badge">
+            <span class="indicator"></span>
+            <span>END-TO-END VISITOR SECURITY &amp; HOSPITALITY</span>
+          </div>
+
+          <h1 class="hero-title">
+            A secure arrival <br />
+            <span class="accent-gradient">should still feel welcoming.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Transform lobby check-in from a bureaucratic friction point into a seamless brand impression. Pre-registration, identity verification, NDAs, and auto-expiring passes in one flow.
+          </p>
+
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Automate Guest Check-In</a>
+            <a href="#visitor-lifecycle" class="btn btn-secondary-dark btn-lg">View 7-Step Lifecycle</a>
+          </div>
+        </div>
+
+        <!-- Featured Visitor Badge Showcase: Marcus Chen -->
+        <div class="visitor-badge-card" style="box-shadow: var(--shadow-dark-card); border-color: rgba(255,255,255,0.12); width:100%;">
+          <div class="badge-top-row">
+            <span class="badge-type-pill">GUEST PASS · VISITOR</span>
+            <span class="badge-expiry-countdown">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline></svg>
+              VALID 10:00 – 12:00
+            </span>
+          </div>
+
+          <div class="visitor-name-title">Marcus Chen</div>
+          <div class="visitor-org-line">Design Director · Figma APAC</div>
+
+          <div class="badge-qr-container">
+            <svg class="badge-qr-code" viewBox="0 0 100 100" fill="#0B0D11">
+              <rect x="0" y="0" width="30" height="30" fill="#0B0D11" rx="4"></rect>
+              <rect x="5" y="5" width="20" height="20" fill="#FFFFFF"></rect>
+              <rect x="10" y="10" width="10" height="10" fill="#0B0D11"></rect>
+
+              <rect x="70" y="0" width="30" height="30" fill="#0B0D11" rx="4"></rect>
+              <rect x="75" y="5" width="20" height="20" fill="#FFFFFF"></rect>
+              <rect x="80" y="10" width="10" height="10" fill="#0B0D11"></rect>
+
+              <rect x="0" y="70" width="30" height="30" fill="#0B0D11" rx="4"></rect>
+              <rect x="5" y="75" width="20" height="20" fill="#FFFFFF"></rect>
+              <rect x="10" y="80" width="10" height="10" fill="#0B0D11"></rect>
+
+              <rect x="38" y="12" width="6" height="6"></rect>
+              <rect x="50" y="8" width="8" height="6"></rect>
+              <rect x="42" y="24" width="6" height="8"></rect>
+              <rect x="54" y="20" width="8" height="6"></rect>
+              <rect x="12" y="42" width="6" height="8"></rect>
+              <rect x="22" y="50" width="8" height="6"></rect>
+              <rect x="36" y="38" width="10" height="10"></rect>
+              <rect x="52" y="40" width="8" height="8"></rect>
+              <rect x="68" y="42" width="6" height="6"></rect>
+              <rect x="82" y="38" width="8" height="8"></rect>
+              <rect x="74" y="54" width="12" height="6"></rect>
+              <rect x="40" y="60" width="8" height="10"></rect>
+              <rect x="54" y="58" width="10" height="6"></rect>
+              <rect x="42" y="78" width="8" height="8"></rect>
+              <rect x="58" y="72" width="6" height="12"></rect>
+              <rect x="70" y="76" width="10" height="6"></rect>
+              <rect x="84" y="72" width="8" height="10"></rect>
+            </svg>
+          </div>
+
+          <div class="badge-host-info">
+            <div class="badge-host-avatar">ĐN</div>
+            <div>
+              <strong>Host: Đỗ Anh Nghĩa</strong> (Product Designer)
+              <div style="font-size:0.775rem; color:var(--text-light-muted);">Approved Area: Floor 03 · Design Studio &amp; Boardroom</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7-Step Visitor Lifecycle Sequence -->
+    <section class="section section-white" id="visitor-lifecycle">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 3.5rem;">
+          <span class="eyebrow">THE 7-STAGE GUEST JOURNEY</span>
+          <h2 class="section-heading">How modern workplaces welcome guests.</h2>
+          <p class="section-subheading">
+            Zero friction for the guest, total auditability for security teams. Every step is tracked in real-time.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 01</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Pre-Register</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              Host invites visitor via calendar invite. Guest receives a branded email link with parking instructions and building entry coordinates.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 02</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Verify Identity</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              Optional government ID photo upload or biometric selfie verification for high-security commercial and financial facilities.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 03</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Sign NDA</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              Sign non-disclosure agreements, safety protocols, and health waivers on phone or touchless lobby kiosk before arrival.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 04</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Check In</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              Scan dynamic mobile QR code directly at the turnstile or tablet kiosk. No queues, no paper logs.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 05</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Enter Approved Floor</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              Speed gate releases; elevator destination dispatch is automatically called to take the guest directly to Floor 03.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 06</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Meet Host</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              Host Đỗ Anh Nghĩa receives a rich notification on Slack / Teams: "Marcus Chen has cleared Turnstile 02 and is en route."
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <span class="eyebrow" style="margin-bottom:0.5rem;">STAGE 07</span>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Exit &amp; Expire</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.875rem; line-height:1.55;">
+              When the meeting concludes or the guest scans out at the lobby, permissions instantly deactivate across all readers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Front Desk Kiosk & Security Integrations -->
+    <section class="section section-dark">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items:center;">
+          <div>
+            <span class="eyebrow eyebrow-dark">TOUCHLESS KIOSK &amp; PRINTER OPTION</span>
+            <h2 class="section-heading">Kiosk check-in as a touchpoint, not a barrier.</h2>
+            <p class="section-subheading">
+              For unexpected walk-in guests or delivery couriers, the ACCESS Lobby Kiosk runs on any standard iPad or commercial tablet. Visitors scan their phone or print a high-contrast adhesive badge in under 15 seconds.
+            </p>
+            <ul class="feature-pill-list">
+              <li class="feature-pill-item">
+                <div class="feature-pill-icon">✓</div>
+                <div>
+                  <h4>Zero-Contact Check-In</h4>
+                  <p>Visitors can scan a QR code on the kiosk screen with their phone camera to complete check-in entirely on their own device.</p>
+                </div>
+              </li>
+              <li class="feature-pill-item">
+                <div class="feature-pill-icon">✓</div>
+                <div>
+                  <h4>Automated Watchlist Screening</h4>
+                  <p>Cross-reference incoming visitor names against corporate blocklists or security watchlists in real-time.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-dark);">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ice-400);">LIVE RECEPTION AUDIT STREAM</span>
+              <span class="nav-status-pill"><span class="status-beacon-green"></span>4 GUESTS ONSITE</span>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:0.75rem; display:flex; flex-direction:column; gap:0.75rem; color:var(--text-dark-secondary);">
+              <div style="padding:0.6rem; background:rgba(255,255,255,0.03); border-radius:8px;">
+                <span style="color:var(--signal-granted);">[10:02] CHECK_IN:</span> Marcus Chen (Figma) · Host: Đỗ Anh Nghĩa · Fl 03
+              </div>
+              <div style="padding:0.6rem; background:rgba(255,255,255,0.03); border-radius:8px;">
+                <span style="color:var(--signal-granted);">[09:48] CHECK_IN:</span> Elena Vance (Venture Partners) · Host: CEO Office
+              </div>
+              <div style="padding:0.6rem; background:rgba(255,255,255,0.03); border-radius:8px;">
+                <span style="color:var(--text-dark-muted);">[09:15] CHECK_OUT:</span> David Kim (HVAC Service) · Escort Completed
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversion Banner -->
+    <section class="section section-white" style="text-align:center;">
+      <div class="container-narrow">
+        <span class="eyebrow">MODERNIZE YOUR LOBBY</span>
+        <h2 class="section-heading">Upgrade your guest security today.</h2>
+        <p class="section-subheading" style="margin: 0 auto 2.5rem;">
+          Deploy touchless visitor check-in across all your workplace lobbies in less than one afternoon.
+        </p>
+        <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Schedule Visitor Security Demo</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border:none; padding:0;">
+        <div>&copy; 2026 ACCESS Technologies Inc. · Cloud Physical Access &amp; Visitor Security Platform</div>
+        <div><a href="index.html" style="color:var(--ice-400);">Return to Overview →</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

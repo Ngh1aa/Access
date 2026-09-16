@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Access Control &amp; Smart Readers — ACCESS</title>
+  <meta name="description" content="Commercial-grade cloud access control engineered for modern enterprises. Smart readers, sub-second triple unlock, encrypted mobile credentials, and instant site lockdown." />
+  <meta name="theme-color" content="#090B0E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ACCESS Home">
+        <div class="brand-mark-cube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span>ACCESS</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="access-control.html" class="nav-link active">Access Control</a></li>
+          <li><a href="mobile-access.html" class="nav-link">Mobile Access</a></li>
+          <li><a href="visitor-management.html" class="nav-link">Visitor Security</a></li>
+          <li><a href="enterprise.html" class="nav-link">Enterprise</a></li>
+          <li><a href="integrations.html" class="nav-link">Integrations</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-status-pill">
+          <span class="status-beacon-green"></span>
+          <span>HARDWARE ONLINE · 48 SITES</span>
+        </div>
+        <a href="demo.html" class="btn btn-primary btn-sm" data-open-demo-modal>Book a Demo</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Platform Overview <span>→</span></a></li>
+      <li><a href="access-control.html" class="mobile-nav-link active">Cloud Access Control <span>→</span></a></li>
+      <li><a href="mobile-access.html" class="mobile-nav-link">Mobile &amp; Wallet Passes <span>→</span></a></li>
+      <li><a href="visitor-management.html" class="mobile-nav-link">Visitor Management <span>→</span></a></li>
+      <li><a href="enterprise.html" class="mobile-nav-link">Enterprise &amp; Multi-Site <span>→</span></a></li>
+      <li><a href="integrations.html" class="mobile-nav-link">Integrations <span>→</span></a></li>
+      <li><a href="demo.html" class="mobile-nav-link" data-open-demo-modal>Book a Demo <span>↗</span></a></li>
+    </ul>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-wrapper" style="min-height: 80svh;">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy-block">
+          <div class="hero-tag-badge">
+            <span class="indicator"></span>
+            <span>NEXT-GEN HARDWARE &amp; CLOUD CONTROLLERS</span>
+          </div>
+
+          <h1 class="hero-title">
+            Cloud Access Control. <br />
+            <span class="accent-gradient">Engineered for real doors.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Industrial-grade smart readers paired with zero-maintenance cloud controllers. Unlock speed gates, server vaults, and perimeter glass doors in under 300 milliseconds.
+          </p>
+
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Request Hardware Sample</a>
+            <a href="#hardware-specs" class="btn btn-secondary-dark btn-lg">View Technical Specs</a>
+          </div>
+        </div>
+
+        <!-- Hardware Visual -->
+        <div class="hardware-stage" style="border: 1px solid var(--border-dark); box-shadow: var(--shadow-dark-card);">
+          <div class="door-jamb-backdrop"></div>
+          <div class="mullion-reader state-idle">
+            <div class="reader-sensor-dot"></div>
+            <div class="reader-led-ring-wrapper">
+              <div class="reader-led-light"></div>
+            </div>
+            <div class="reader-rfid-zone">
+              <svg class="reader-nfc-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 18a6 6 0 0 1 0-12"></path>
+                <path d="M10 16a3 3 0 0 1 0-8"></path>
+              </svg>
+              <span class="reader-brand-label">ACCESS READER PRO</span>
+            </div>
+          </div>
+          <div class="door-strike-display" style="margin-top:2rem;">
+            <div class="door-strike-indicator locked"></div>
+            <span>TRIPLE-UNLOCK ACTIVE · BLUETOOTH + NFC + CLOUD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Triple Unlock Technology Breakdown -->
+    <section class="section section-white">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 3.5rem;">
+          <span class="eyebrow">PATENTED RELIABILITY</span>
+          <h2 class="section-heading">Triple Unlock Technology</h2>
+          <p class="section-subheading">
+            Network drops happen. Internet cables get severed. ACCESS uses a concurrent triple-signal architecture to ensure nobody gets stuck outside your building.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+            <div class="feature-pill-icon" style="margin-bottom: 1.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h2M6 12h2M10 12h2M14 12h2M18 12h2M22 12h2"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">01. Bluetooth Low Energy</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.925rem; line-height:1.6;">
+              Detects approaching mobile credentials up to 3 meters away. Pre-caches authorization before you reach the handle.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+            <div class="feature-pill-icon" style="margin-bottom: 1.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">02. Encrypted NFC</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.925rem; line-height:1.6;">
+              EAL6+ hardware secure element. Apple Wallet Express Mode works instantly even if the device battery is exhausted.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem;">
+            <div class="feature-pill-icon" style="margin-bottom: 1.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">03. Local Mesh Fallback</h3>
+            <p style="color:var(--text-light-secondary); font-size:0.925rem; line-height:1.6;">
+              Controllers store offline encryption keys and schedules locally. Total WAN blackout? Doors operate with 100% fidelity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware Showcase & Form Factors -->
+    <section class="section section-dark" id="hardware-specs">
+      <div class="container">
+        <div style="max-width: 720px; margin-bottom: 3.5rem;">
+          <span class="eyebrow eyebrow-dark">HARDWARE SPECIFICATION</span>
+          <h2 class="section-heading">Designed for modern architecture.</h2>
+          <p class="section-subheading">
+            Sleek aluminum and tempered acrylic housings that complement glass curtain walls, minimalist wood jambs, and modern speed gates.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+          <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.5rem;">
+            <span class="eyebrow eyebrow-dark">MULLION PROFILE</span>
+            <h3 style="font-size:1.65rem; color:#FFF; margin-bottom:1rem;">ACCESS Smart Reader Slim</h3>
+            <p style="color:var(--text-dark-secondary); margin-bottom:1.5rem; font-size:0.925rem; line-height:1.6;">
+              Designed specifically for narrow aluminum door mullions and glass partitions. Zero visible screws, IP65 weather-sealed, with an integrated 360° status ring.
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dark-secondary);">
+              <li>• Dimensions: 42mm × 148mm × 18mm</li>
+              <li>• Weather Rating: IP65 Outdoor / -40°C to +65°C</li>
+              <li>• Wiring: 4-wire OSDP v2 Secure Channel or PoE</li>
+              <li>• Tamper Protection: Optical Accelerometer Sensor</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-dark-surface); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 2.5rem;">
+            <span class="eyebrow eyebrow-dark">SINGLE-GANG PROFILE</span>
+            <h3 style="font-size:1.65rem; color:#FFF; margin-bottom:1rem;">ACCESS Smart Reader Pro + Keypad</h3>
+            <p style="color:var(--text-dark-secondary); margin-bottom:1.5rem; font-size:0.925rem; line-height:1.6;">
+              Full single-gang mount with capacitive touch keypad for dual-factor authentication into high-security zones, server rooms, and executive elevators.
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dark-secondary);">
+              <li>• Dimensions: 82mm × 124mm × 21mm</li>
+              <li>• Multi-Factor: Mobile Tap + 6-digit PIN</li>
+              <li>• Camera Sensor: 1080p Verification Sensor</li>
+              <li>• Power: 12VDC or IEEE 802.3af PoE</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversion Banner -->
+    <section class="section section-white" style="text-align:center;">
+      <div class="container-narrow">
+        <span class="eyebrow">EVALUATION SAMPLE KIT</span>
+        <h2 class="section-heading">Test ACCESS hardware in your office.</h2>
+        <p class="section-subheading" style="margin: 0 auto 2.5rem;">
+          Qualified enterprise facilities teams can request an ACCESS Evaluation Kit with a pre-configured Smart Reader and cloud tenant sandbox.
+        </p>
+        <a href="demo.html" class="btn btn-primary btn-lg" data-open-demo-modal>Request Hardware Evaluation Kit</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border:none; padding:0;">
+        <div>&copy; 2026 ACCESS Technologies Inc. · Cloud Physical Access &amp; Visitor Security Platform</div>
+        <div><a href="index.html" style="color:var(--ice-400);">Return to Overview →</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
