@@ -24,7 +24,7 @@ main div[style*="background:rgba(255,255,255,0.03)"] {
 .feature-pill-item {
   border-radius: 0 !important;
   border: 1px solid var(--border-light) !important;
-  background: rgba(247, 249, 250, .72) !important;
+  background: var(--bg-white) !important;
   box-shadow: 4px 4px 0 rgba(7,16,26,.07);
   padding: 1rem !important;
 }
@@ -44,7 +44,7 @@ main div[style*="background:rgba(255,255,255,0.03)"] {
 /* Secondary-page opening modules should feel like product instrumentation. */
 main > section:first-child {
   position: relative;
-  overflow: clip;
+  overflow: visible;
 }
 
 main > section:first-child::after {

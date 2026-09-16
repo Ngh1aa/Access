@@ -23,8 +23,8 @@
   --border-light-hover: rgba(5, 15, 26, 0.34);
 
   --text-dark-primary: #F4F8FB;
-  --text-dark-secondary: #A5B4C3;
-  --text-dark-muted: #64778A;
+  --text-dark-secondary: #C7D4E1;
+  --text-dark-muted: #8CA3BA;
   --text-light-primary: #07101A;
   --text-light-secondary: #3C4B5A;
   --text-light-muted: #66788A;
@@ -67,7 +67,7 @@
 }
 
 html {
-  background: #050608;
+  background-color: var(--bg-dark);
 }
 
 body {
@@ -95,6 +95,12 @@ body::before {
   mix-blend-mode: soft-light;
 }
 
+@media print {
+  body::before {
+    display: none !important;
+  }
+}
+
 ::selection {
   color: #02070B;
   background: var(--ice-400);
@@ -109,11 +115,11 @@ body::before {
 /* --- Global structural language ----------------------------------------- */
 .section {
   border-top: 1px solid var(--border-light);
-  overflow: clip;
+  overflow: visible;
 }
 
 .section-dark {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-dark) !important;
   background-image:
     linear-gradient(rgba(140, 233, 255, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(140, 233, 255, 0.045) 1px, transparent 1px);
@@ -121,8 +127,16 @@ body::before {
   border-top-color: var(--border-dark);
 }
 
-.section-light,
+.section-light {
+  background-color: var(--bg-light) !important;
+  background-image:
+    linear-gradient(rgba(7, 16, 26, 0.038) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 16, 26, 0.038) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 .section-white {
+  background-color: var(--bg-white) !important;
   background-image:
     linear-gradient(rgba(7, 16, 26, 0.038) 1px, transparent 1px),
     linear-gradient(90deg, rgba(7, 16, 26, 0.038) 1px, transparent 1px);
@@ -225,6 +239,10 @@ pre {
   background: var(--ice-400);
   font: 500 9px/1 var(--font-tech);
   letter-spacing: 0.08em;
+}
+
+.site-header-scrolled::before {
+  display: none !important;
 }
 
 .site-header-scrolled {
@@ -570,10 +588,17 @@ pre {
 .reader-sim-container,
 .system-diagram-card,
 .journey-timeline-card {
+  background-color: var(--bg-white) !important;
   background-image:
     linear-gradient(rgba(140, 233, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(140, 233, 255, 0.04) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+.section-dark .reader-sim-container,
+.section-dark .system-diagram-card,
+.section-dark .journey-timeline-card {
+  background-color: var(--bg-dark-surface) !important;
 }
 
 .reader-sim-container::before {
