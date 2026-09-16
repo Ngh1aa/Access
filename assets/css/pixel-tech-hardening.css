@@ -4,7 +4,7 @@
 main div[style*="border-radius"]:not([style*="50%"]),
 main article[style*="border-radius"]:not([style*="50%"]),
 main aside[style*="border-radius"]:not([style*="50%"]),
-main li[style*="border-radius"]:not([style*="50%"] ) {
+main li[style*="border-radius"]:not([style*="50%"]) {
   border-radius: 2px !important;
 }
 
