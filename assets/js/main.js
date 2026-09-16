@@ -9,7 +9,8 @@
   // --- 0. Secure Pixel Infrastructure visual layer ---
   const pixelThemeStyles = [
     'assets/css/pixel-tech.css',
-    'assets/css/pixel-tech-hardening.css'
+    'assets/css/pixel-tech-hardening.css',
+    'assets/css/pixel-motion.css'
   ];
 
   pixelThemeStyles.forEach((href) => {
