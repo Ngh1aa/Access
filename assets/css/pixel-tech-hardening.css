@@ -138,7 +138,11 @@ main [class*="integration-card"]:hover {
   main [style*="grid-template-columns: 1.15fr 0.85fr"],
   main [style*="grid-template-columns:1.15fr 0.85fr"],
   main [style*="grid-template-columns: 0.8fr 1.2fr"],
-  main [style*="grid-template-columns:0.8fr 1.2fr"] {
+  main [style*="grid-template-columns:0.8fr 1.2fr"],
+  main [style*="grid-template-columns: repeat(3, 1fr)"]:not([style*="max-width"]),
+  main [style*="grid-template-columns:repeat(3, 1fr)"]:not([style*="max-width"]),
+  main [style*="grid-template-columns: repeat(3,1fr)"]:not([style*="max-width"]),
+  main [style*="grid-template-columns:repeat(3,1fr)"]:not([style*="max-width"]) {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
@@ -153,6 +157,13 @@ main [class*="integration-card"]:hover {
     padding: 1.35rem !important;
   }
 
+  /* Inline technical rows should wrap instead of squeezing labels/statuses. */
+  main [style*="justify-content:space-between"],
+  main [style*="justify-content: space-between"] {
+    flex-wrap: wrap !important;
+    row-gap: .5rem !important;
+  }
+
   main > section:first-child::after {
     right: 1rem;
     font-size: 7px;
@@ -160,6 +171,12 @@ main [class*="integration-card"]:hover {
 }
 
 @media (max-width: 480px) {
+  /* Auto-fit integration grids with a 340px minimum can overflow 360–375px devices. */
+  main [style*="minmax(340px, 1fr)"],
+  main [style*="minmax(340px,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
   main > section:first-child::after {
     content: 'ACCESS // SECURE_LAYER';
   }
