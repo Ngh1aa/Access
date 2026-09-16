@@ -1,0 +1,170 @@
+/* ACCESS — Secure Pixel Infrastructure secondary-page hardening */
+
+/* Square off legacy inline panels while preserving true circular controls/status LEDs. */
+main div[style*="border-radius"]:not([style*="50%"]),
+main article[style*="border-radius"]:not([style*="50%"]),
+main aside[style*="border-radius"]:not([style*="50%"]),
+main li[style*="border-radius"]:not([style*="50%"]) {
+  border-radius: 2px !important;
+}
+
+/* Convert decorative soft surfaces into technical modules. */
+main div[style*="background: var(--bg-dark-surface)"],
+main div[style*="background:var(--bg-dark-surface)"],
+main div[style*="background: rgba(255,255,255,0.03)"],
+main div[style*="background:rgba(255,255,255,0.03)"] {
+  border-color: var(--border-dark) !important;
+  box-shadow: 4px 4px 0 rgba(140,233,255,.055);
+}
+
+.feature-pill-list {
+  gap: .75rem !important;
+}
+
+.feature-pill-item {
+  border-radius: 0 !important;
+  border: 1px solid var(--border-light) !important;
+  background: rgba(247, 249, 250, .72) !important;
+  box-shadow: 4px 4px 0 rgba(7,16,26,.07);
+  padding: 1rem !important;
+}
+
+.section-dark .feature-pill-item {
+  border-color: var(--border-dark) !important;
+  background: rgba(9,12,17,.82) !important;
+  box-shadow: 4px 4px 0 rgba(140,233,255,.05);
+}
+
+.feature-pill-icon {
+  border-radius: 0 !important;
+  font-family: var(--font-pixel) !important;
+  box-shadow: 3px 3px 0 rgba(40,107,255,.14);
+}
+
+/* Secondary-page opening modules should feel like product instrumentation. */
+main > section:first-child {
+  position: relative;
+  overflow: clip;
+}
+
+main > section:first-child::after {
+  content: 'ACCESS // SECURE_PHYSICAL_LAYER';
+  position: absolute;
+  right: var(--container-gutter);
+  bottom: 0;
+  z-index: 5;
+  padding: 4px 8px;
+  color: #07101A;
+  background: var(--ice-400);
+  font: 700 8px/1 var(--font-tech);
+  letter-spacing: .08em;
+}
+
+/* Architecture / data-flow diagrams */
+[class*="timeline"],
+[class*="diagram"],
+[class*="matrix"],
+[class*="flow"] {
+  --pixel-rule: rgba(140,233,255,.16);
+}
+
+[class*="timeline"] [class*="step"],
+[class*="diagram"] [class*="node"],
+[class*="matrix"] [class*="cell"],
+[class*="flow"] [class*="node"] {
+  border-radius: 0 !important;
+}
+
+/* Tables / logs / technical lists */
+table {
+  border-collapse: collapse;
+  font-family: var(--font-tech);
+  font-size: .78rem;
+}
+
+th {
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+th, td {
+  border-color: var(--border-light) !important;
+}
+
+.section-dark th,
+.section-dark td {
+  border-color: var(--border-dark) !important;
+}
+
+/* Technical hover grammar: one-pixel rail instead of soft floating cards. */
+main a[class*="card"],
+main button[class*="card"],
+main [class*="feature-card"],
+main [class*="integration-card"] {
+  transition: transform 140ms steps(2,end), box-shadow 140ms steps(2,end), border-color 140ms linear !important;
+}
+
+main a[class*="card"]:hover,
+main button[class*="card"]:hover,
+main [class*="feature-card"]:hover,
+main [class*="integration-card"]:hover {
+  transform: translate(-2px, -2px) !important;
+  border-color: var(--ice-400) !important;
+}
+
+/* Pixel status vocabulary stays semantic. */
+[style*="var(--signal-granted)"],
+.state-granted {
+  --status-pixel: var(--signal-granted);
+}
+
+[style*="var(--signal-warning)"],
+.state-warning {
+  --status-pixel: var(--signal-warning);
+}
+
+[style*="var(--signal-denied)"],
+.state-denied,
+.state-lockdown {
+  --status-pixel: var(--signal-denied);
+}
+
+/* Mobile: inline desktop grids in legacy pages must actually transform. */
+@media (max-width: 768px) {
+  main [style*="grid-template-columns: 1fr 1fr"],
+  main [style*="grid-template-columns:1fr 1fr"],
+  main [style*="grid-template-columns: 1.2fr 0.8fr"],
+  main [style*="grid-template-columns:1.2fr 0.8fr"],
+  main [style*="grid-template-columns: 1.15fr 0.85fr"],
+  main [style*="grid-template-columns:1.15fr 0.85fr"],
+  main [style*="grid-template-columns: 0.8fr 1.2fr"],
+  main [style*="grid-template-columns:0.8fr 1.2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  main [style*="padding: 2.5rem"],
+  main [style*="padding:2.5rem"] {
+    padding: 1.25rem !important;
+  }
+
+  main [style*="padding: 3.5rem"],
+  main [style*="padding:3.5rem"] {
+    padding: 1.35rem !important;
+  }
+
+  main > section:first-child::after {
+    right: 1rem;
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  main > section:first-child::after {
+    content: 'ACCESS // SECURE_LAYER';
+  }
+
+  .feature-pill-item {
+    padding: .9rem !important;
+  }
+}
