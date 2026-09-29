@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="pixel-tech-ui">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACCESS — Demo Request State Lab</title>
+  <meta name="description" content="Interactive ACCESS prototype state lab covering validation, loading, failed submission, preserved form data, retry and success.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pixel-tech.css">
+  <link rel="stylesheet" href="assets/css/pixel-tech-hardening.css">
+  <style>
+    .lab-shell{max-width:1120px;margin:0 auto;padding:110px 24px 72px}.lab-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:28px}.lab-head h1{color:#fff;font-size:clamp(2rem,4vw,3.5rem);margin:.4rem 0}.lab-head p{color:var(--text-dark-secondary);max-width:720px;line-height:1.65}.lab-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px}.lab-card{background:var(--bg-dark-surface);border:1px solid var(--border-dark-bright);border-radius:var(--radius-xl);padding:clamp(1.5rem,4vw,2.5rem);box-shadow:var(--shadow-dark-card)}.lab-status{display:none;margin-top:16px;padding:14px 16px;border-radius:12px;font-size:.88rem;line-height:1.55}.lab-status.show{display:block}.lab-status.loading{background:rgba(87,152,255,.08);border:1px solid rgba(87,152,255,.35);color:#d9e8ff}.lab-status.error{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.4);color:#ffd9d9}.lab-status.success{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.4);color:#d4f9e4}.lab-status strong{display:block;color:inherit;margin-bottom:4px}.lab-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.lab-actions button{min-height:42px}.state-list{display:grid;gap:12px}.state-item{padding:14px;border:1px solid var(--border-dark);border-radius:12px}.state-item span{font-family:var(--font-mono);font-size:.72rem;color:var(--ice-400)}.state-item strong{display:block;color:#fff;margin:.35rem 0}.state-item p{margin:0;color:var(--text-dark-secondary);font-size:.83rem;line-height:1.5}.field-error{min-height:18px;color:#ffb5b5;font-size:.76rem;margin-top:5px}.form-input[aria-invalid="true"]{border-color:#f87171!important;box-shadow:0 0 0 2px rgba(248,113,113,.12)}.boundary{margin-top:20px;color:var(--text-dark-muted);font-size:.76rem;line-height:1.55}@media(max-width:820px){.lab-grid{grid-template-columns:1fr}.lab-head{flex-direction:column}.lab-shell{padding-top:92px}}
+  </style>
+</head>
+<body style="background:var(--bg-dark);color:var(--text-dark-primary)">
+  <header class="site-header" id="siteHeader"><div class="container header-inner"><a href="index.html" class="brand-logo" aria-label="ACCESS Home"><div class="brand-mark-cube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><span>ACCESS</span></a><div class="nav-actions"><a href="demo.html" class="btn btn-secondary-dark btn-sm">Standard demo form</a></div></div></header>
+
+  <main class="lab-shell">
+    <div class="lab-head"><div><span class="eyebrow eyebrow-dark">Prototype state evidence</span><h1>Submit → fail safely → retry.</h1><p>This route makes the non-happy-path behavior inspectable. The first valid submission intentionally fails; entered data is preserved, repeated actions are blocked while loading, and retry succeeds without asking the user to re-enter the form.</p></div><a href="index.html" class="btn btn-secondary-dark">Platform overview →</a></div>
+
+    <div class="lab-grid">
+      <section class="lab-card" aria-labelledby="request-title">
+        <h2 id="request-title" style="color:#fff;font-size:1.65rem;margin:0 0 .5rem">Request an enterprise demo</h2>
+        <p style="color:var(--text-dark-secondary);margin:0 0 1.5rem">Fictional submission flow for interaction/state review.</p>
+        <form id="stateLabForm" class="form-group-grid" novalidate>
+          <div class="form-field"><label for="labEmail">Work Email *</label><input class="form-input" type="email" id="labEmail" autocomplete="email" placeholder="alex@company.com" required><div class="field-error" id="labEmailError"></div></div>
+          <div class="form-field"><label for="labCompany">Company Name *</label><input class="form-input" type="text" id="labCompany" autocomplete="organization" placeholder="Northstar Labs" required><div class="field-error" id="labCompanyError"></div></div>
+          <div class="form-field col-span-2"><label for="labNeed">Primary Physical Access Need</label><select class="form-select" id="labNeed"><option>Mobile Wallet Credentials</option><option>Visitor Check-In</option><option>Multi-Site Access Governance</option><option>Identity Provider Automation</option></select></div>
+          <div class="form-field col-span-2"><button id="labSubmit" class="btn btn-primary btn-lg" type="submit" style="width:100%">Book My ACCESS Demo</button></div>
+        </form>
+        <div id="labStatus" class="lab-status" role="status" aria-live="assertive"></div>
+        <p class="boundary"><strong>Evidence boundary:</strong> network failure is deliberately simulated client-side. This proves validation/loading/error/retry/success interaction states exist; it does not prove a production booking backend, SLA, security certification or business conversion outcome.</p>
+      </section>
+
+      <aside class="lab-card" aria-labelledby="state-title"><h2 id="state-title" style="color:#fff;font-size:1.25rem;margin:0 0 1rem">State contract</h2><div class="state-list">
+        <div class="state-item"><span>01 · VALIDATION</span><strong>Correct before submit</strong><p>Required fields expose an error next to the affected control and move focus to the first invalid field.</p></div>
+        <div class="state-item"><span>02 · LOADING</span><strong>Block duplicate action</strong><p>Submit is disabled while the request is being processed.</p></div>
+        <div class="state-item"><span>03 · ERROR</span><strong>Preserve context</strong><p>Entered values stay intact; the user can retry instead of reconstructing the request.</p></div>
+        <div class="state-item"><span>04 · RECOVERY</span><strong>Explicit retry</strong><p>Retry is a deliberate action and does not hide the prior failure.</p></div>
+        <div class="state-item"><span>05 · SUCCESS</span><strong>Clear completion</strong><p>Only after retry succeeds does the prototype show a completed state.</p></div>
+      </div></aside>
+    </div>
+  </main>
+
+  <script>
+    const form=document.getElementById('stateLabForm');
+    const submit=document.getElementById('labSubmit');
+    const status=document.getElementById('labStatus');
+    const email=document.getElementById('labEmail');
+    const company=document.getElementById('labCompany');
+    let firstValidAttempt=true;
+
+    function fieldState(input,errorEl,message){
+      input.setAttribute('aria-invalid',message?'true':'false');
+      errorEl.textContent=message||'';
+    }
+    function validate(){
+      let first=null;
+      const emailError=document.getElementById('labEmailError');
+      const companyError=document.getElementById('labCompanyError');
+      const emailMessage=!email.value.trim()?'Enter a work email.':(!email.checkValidity()?'Use a valid email format.':'');
+      const companyMessage=!company.value.trim()?'Enter a company name.':'';
+      fieldState(email,emailError,emailMessage);fieldState(company,companyError,companyMessage);
+      if(emailMessage) first=email; else if(companyMessage) first=company;
+      if(first) first.focus();
+      return !first;
+    }
+    function render(kind,title,copy,actions=''){
+      status.className=`lab-status show ${kind}`;
+      status.innerHTML=`<strong>${title}</strong>${copy}${actions}`;
+    }
+    function setBusy(busy){
+      submit.disabled=busy;
+      submit.textContent=busy?'Submitting request…':'Book My ACCESS Demo';
+      form.setAttribute('aria-busy',busy?'true':'false');
+    }
+    function attempt(){
+      if(!validate()) return;
+      setBusy(true);
+      render('loading','Submitting request…','ACCESS is preparing the simulated demo request. Duplicate submission is disabled.');
+      setTimeout(()=>{
+        if(firstValidAttempt){
+          firstValidAttempt=false;
+          setBusy(false);
+          render('error','Request could not be sent.','Your form data is still here. Nothing has been booked yet.',`<div class="lab-actions"><button id="retryRequest" class="btn btn-primary" type="button">Retry request</button><button id="editRequest" class="btn btn-secondary-dark" type="button">Review fields</button></div>`);
+          document.getElementById('retryRequest').addEventListener('click',attempt);
+          document.getElementById('editRequest').addEventListener('click',()=>email.focus());
+          return;
+        }
+        setBusy(false);
+        render('success','Demonstration request completed.','The retry succeeded with the same preserved values. In a production system this state would require a real backend confirmation identifier.');
+      },650);
+    }
+    form.addEventListener('submit',(event)=>{event.preventDefault();attempt();});
+  </script>
+</body>
+</html>
