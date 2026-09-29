@@ -1,0 +1,39 @@
+{
+  "study_id": "access-round-01",
+  "product": "ACCESS",
+  "study_type": "moderated task-based usability / permission-state comprehension test",
+  "status": "READY_TO_RECRUIT",
+  "evidence_state": "PLANNED_VALIDATION",
+  "target_participants": 5,
+  "verified_sessions": 0,
+  "preferred_population": "workplace IT / physical security / facilities / identity-access practitioners",
+  "proxy_population_allowed": true,
+  "prototype_routes": [
+    "access-control.html",
+    "mobile-access.html",
+    "visitor-management.html",
+    "enterprise.html",
+    "demo-state-lab.html"
+  ],
+  "research_assets": {
+    "study_plan": "research/validation/access-round-01/STUDY-PLAN.md",
+    "screener_and_consent": "research/validation/access-round-01/SCREENER-AND-CONSENT.md",
+    "session_template": "research/validation/access-round-01/SESSION-TEMPLATE.md",
+    "atomic_ledger": "research/validation/access-round-01/evidence-ledger.jsonl",
+    "findings": "research/validation/access-round-01/FINDINGS.md",
+    "decision_log": "research/validation/access-round-01/DECISION-LOG.md"
+  },
+  "next_valid_transition": "Recruit an eligible participant, obtain consent, run the defined tasks, store an anonymized session record, append atomic evidence, then synthesize with DIRECT_USER/PROXY distinctions preserved.",
+  "allowed_claims": [
+    "A working validation/loading/error/retry/success demo state route exists",
+    "A permission-state validation round is ready to recruit",
+    "No real participant findings have been collected yet"
+  ],
+  "forbidden_claims_until_verified": [
+    "ACCESS has been validated by security teams",
+    "ACCESS reduces security incidents",
+    "ACCESS improves emergency response",
+    "ACCESS improves demo conversion",
+    "ACCESS is compliant or certified based on this prototype"
+  ]
+}
